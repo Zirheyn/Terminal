@@ -13,12 +13,12 @@ defineProps<{
 </script>
 
 <template>
-  <article class="brutal-card group flex h-full flex-col p-4">
+  <article class="brutal-card group flex h-full flex-col p-3">
     <NuxtLink :to="post.path" class="mb-3 block no-underline">
       <img
         :src="post.cover || '/banner-test.jpg'"
         :alt="`${post.title} banner`"
-        class="h-28 w-full border border-zinc-700 object-cover"
+        class="h-24 w-full border border-zinc-700 object-cover"
         loading="lazy"
       >
     </NuxtLink>
@@ -28,13 +28,13 @@ defineProps<{
       <span v-if="post.readingTime"> · {{ post.readingTime }}</span>
     </p>
 
-    <h3 class="mb-2 text-xl font-bold uppercase leading-tight">
+    <h3 class="mb-2 text-lg font-bold uppercase leading-tight">
       <NuxtLink :to="post.path" class="no-underline">
         {{ post.title }}
       </NuxtLink>
     </h3>
 
-    <p class="mb-5 text-zinc-300">{{ post.description }}</p>
+    <p class="mb-4 text-sm leading-6 text-zinc-300">{{ post.description }}</p>
 
     <div class="mt-auto flex items-end justify-between gap-3">
       <div class="flex flex-wrap gap-2">

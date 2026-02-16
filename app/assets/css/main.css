@@ -161,6 +161,10 @@ button:hover,
   animation: none;
 }
 
+.tag-filter-btn {
+  cursor: pointer;
+}
+
 .site-logo {
   color: #000;
   background: #fff;

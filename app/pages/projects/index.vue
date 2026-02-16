@@ -46,7 +46,7 @@ useSeoMeta({
 
       <div class="flex flex-wrap gap-2">
         <button
-          class="button-like border px-3 py-1 text-sm"
+          class="button-like tag-filter-btn border px-3 py-1 text-sm"
           :class="!activeTag ? 'bg-white text-black border-white' : 'border-zinc-700 hover:bg-white hover:text-black'"
           @click="activeTag = null"
         >
@@ -55,7 +55,7 @@ useSeoMeta({
         <button
           v-for="tag in allTags"
           :key="tag"
-          class="button-like border px-3 py-1 text-sm"
+          class="button-like tag-filter-btn border px-3 py-1 text-sm"
           :class="activeTag === tag ? 'bg-white text-black border-white' : 'border-zinc-700 hover:bg-white hover:text-black'"
           @click="activeTag = tag"
         >
@@ -68,7 +68,7 @@ useSeoMeta({
       </p>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-2">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       <ProjectCard v-for="project in filteredProjects" :key="project.path" :project="project" />
     </div>
 
