@@ -62,6 +62,7 @@ const metrics = computed(() => ({
 
 const activeRepos = computed(() => githubStats.value?.repos || [])
 const calendarWeeks = computed(() => githubStats.value?.calendar.weeks || [])
+const hoveredContribution = ref<{ date: string, count: number } | null>(null)
 
 const contributionLevelClass = (level: string) => {
   if (level === 'FOURTH_QUARTILE') return 'contrib-lvl-4'
@@ -70,6 +71,21 @@ const contributionLevelClass = (level: string) => {
   if (level === 'FIRST_QUARTILE') return 'contrib-lvl-1'
   return 'contrib-lvl-0'
 }
+
+const contributionHoverLabel = computed(() => {
+  if (!hoveredContribution.value) {
+    return 'Hover a cell to inspect daily contributions.'
+  }
+
+  const formattedDate = new Date(hoveredContribution.value.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  })
+
+  const suffix = hoveredContribution.value.count > 1 ? 'contributions' : 'contribution'
+  return `${formattedDate}: ${hoveredContribution.value.count} ${suffix}`
+})
 
 useSeoMeta({
   title: 'Home',
@@ -108,9 +124,15 @@ useSeoMeta({
                   class="contrib-cell"
                   :class="contributionLevelClass(day.level)"
                   :title="`${day.date}: ${day.count} contributions`"
+                  tabindex="0"
+                  @mouseenter="hoveredContribution = { date: day.date, count: day.count }"
+                  @mouseleave="hoveredContribution = null"
+                  @focus="hoveredContribution = { date: day.date, count: day.count }"
+                  @blur="hoveredContribution = null"
                 />
               </div>
             </div>
+            <p class="mt-3 text-xs uppercase tracking-[0.14em] text-zinc-400">{{ contributionHoverLabel }}</p>
           </div>
         </div>
 
