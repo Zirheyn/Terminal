@@ -46,6 +46,7 @@ export default defineContentConfig({
         description: z.string(),
         tags: z.array(z.string()).default([]),
         year: z.number(),
+        cover: z.string().optional(),
         links: z
           .object({
             repo: z.string().optional(),

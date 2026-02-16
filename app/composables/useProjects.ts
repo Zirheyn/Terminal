@@ -4,6 +4,15 @@ export interface ProjectItem {
   description: string
   tags: string[]
   year: number
+  cover?: string
+  body?: {
+    toc?: {
+      links?: Array<{
+        id: string
+        text: string
+      }>
+    }
+  }
   links?: {
     repo?: string
     demo?: string

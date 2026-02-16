@@ -6,27 +6,39 @@ defineProps<{
     description: string
     tags?: string[]
     year: number
+    cover?: string
   }
 }>()
 </script>
 
 <template>
-  <article class="brutal-card group flex h-full flex-col p-4">
+  <article class="brutal-card group flex h-full flex-col p-5">
+    <NuxtLink :to="project.path" class="mb-3 block no-underline">
+      <img
+        :src="project.cover || '/banner-test.jpg'"
+        :alt="`${project.title} banner`"
+        class="h-32 w-full border border-zinc-700 object-cover"
+        loading="lazy"
+      >
+    </NuxtLink>
+
     <p class="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">{{ project.year }}</p>
 
-    <h3 class="mb-2 text-xl font-bold uppercase leading-tight">
+    <h3 class="mb-2 text-xl font-bold uppercase leading-tight sm:text-2xl">
       <NuxtLink :to="project.path" class="no-underline">
         {{ project.title }}
       </NuxtLink>
     </h3>
 
-    <p class="mb-5 text-zinc-300">{{ project.description }}</p>
+    <p class="mb-5 text-sm leading-7 text-zinc-300">{{ project.description }}</p>
 
     <div class="mt-auto flex items-end justify-between gap-3">
       <div class="flex flex-wrap gap-2">
         <TagPill v-for="tag in project.tags || []" :key="tag" :label="tag" />
       </div>
-      <span class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 transition group-hover:text-white">inspect &gt;</span>
+      <NuxtLink :to="project.path" class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
+        inspect &gt;
+      </NuxtLink>
     </div>
   </article>
 </template>
