@@ -20,6 +20,7 @@ const allPosts = await useSeoRoadmaps()
 const currentIndex = allPosts.findIndex((item) => item.path === post.path)
 const prevPost = computed(() => (currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null))
 const nextPost = computed(() => (currentIndex > 0 ? allPosts[currentIndex - 1] : null))
+const visibleTags = computed(() => (post.tags || []).slice(0, 4))
 
 useSeoMeta({
   title: post.title,
@@ -43,7 +44,7 @@ useSeoMeta({
         <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ post.title }}</h1>
         <p class="max-w-3xl text-zinc-300">{{ post.description }}</p>
         <div class="flex flex-wrap gap-2">
-          <TagPill v-for="tag in post.tags" :key="tag" :label="tag" />
+          <TagPill v-for="tag in visibleTags" :key="tag" :label="tag" />
         </div>
       </header>
 

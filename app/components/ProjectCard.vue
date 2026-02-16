@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   project: {
     path: string
     title: string
@@ -9,6 +9,8 @@ defineProps<{
     cover?: string
   }
 }>()
+
+const visibleTags = computed(() => (props.project.tags || []).slice(0, 4))
 </script>
 
 <template>
@@ -34,7 +36,7 @@ defineProps<{
 
     <div class="mt-auto flex items-end justify-between gap-3">
       <div class="flex flex-wrap gap-2">
-        <TagPill v-for="tag in project.tags || []" :key="tag" :label="tag" />
+        <TagPill v-for="tag in visibleTags" :key="tag" :label="tag" />
       </div>
       <NuxtLink :to="project.path" class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
         inspect &gt;

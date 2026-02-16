@@ -16,6 +16,7 @@ const currentIndex = allProjects.findIndex((item) => item.path === project.path)
 const prevProject = computed(() => (currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null))
 const nextProject = computed(() => (currentIndex > 0 ? allProjects[currentIndex - 1] : null))
 const coverUrl = computed(() => project.cover || '/banner-test.jpg')
+const visibleTags = computed(() => (project.tags || []).slice(0, 4))
 
 useSeoMeta({
   title: project.title,
@@ -46,7 +47,7 @@ useSeoMeta({
         <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ project.title }}</h1>
         <p class="max-w-3xl text-zinc-300">{{ project.description }}</p>
         <div class="flex flex-wrap gap-2">
-          <TagPill v-for="tag in project.tags" :key="tag" :label="tag" />
+          <TagPill v-for="tag in visibleTags" :key="tag" :label="tag" />
         </div>
         <div class="flex flex-wrap gap-3 pt-2">
           <UButton

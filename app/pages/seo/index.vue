@@ -179,9 +179,9 @@ useSeoMeta({
           <p class="mb-4 text-zinc-300">{{ post.description }}</p>
           <div class="mt-auto flex items-end justify-between gap-3">
             <div class="flex flex-wrap gap-2">
-              <TagPill v-for="tag in post.tags || []" :key="tag" :label="tag" />
+              <TagPill v-for="tag in (post.tags || []).slice(0, 4)" :key="tag" :label="tag" />
             </div>
-            <NuxtLink :to="post.path" class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
+            <NuxtLink :to="post.path" class="card-open-link text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
               open &gt;
             </NuxtLink>
           </div>

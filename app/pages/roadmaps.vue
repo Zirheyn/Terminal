@@ -112,11 +112,11 @@ useSeoMeta({
 
         <p class="mb-5 text-sm leading-6 text-zinc-300">{{ item.description }}</p>
 
-        <div class="mt-auto flex items-end justify-between gap-3">
-          <div class="flex flex-wrap gap-2">
-            <TagPill v-for="tag in item.tags" :key="tag" :label="tag" />
-          </div>
-          <NuxtLink :to="item.path" class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
+          <div class="mt-auto flex items-end justify-between gap-3">
+            <div class="flex flex-wrap gap-2">
+              <TagPill v-for="tag in item.tags.slice(0, 4)" :key="tag" :label="tag" />
+            </div>
+          <NuxtLink :to="item.path" class="card-open-link text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
             open &gt;
           </NuxtLink>
         </div>
