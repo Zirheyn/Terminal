@@ -1,6 +1,6 @@
 ---
 title: About
-description: todo
+description: Freelance developer focused on secure, production-ready web systems and practical tooling.
 ---
 
-## TODO
+I am a freelance developer building secure and maintainable applications, with a strong focus on backend engineering, API design, and production reliability.
