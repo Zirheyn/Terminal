@@ -40,7 +40,6 @@ useSeoMeta({
           <span>←</span>
           <span>Back to SEO Roadmap</span>
         </NuxtLink>
-        <p class="text-xs uppercase tracking-wide text-zinc-400">{{ new Date(post.date).toLocaleDateString('en-US') }}</p>
         <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ post.title }}</h1>
         <p class="max-w-3xl text-zinc-300">{{ post.description }}</p>
         <div class="flex flex-wrap gap-2">

@@ -170,7 +170,20 @@ useSeoMeta({
     <section class="space-y-3 border border-zinc-700 bg-zinc-950 p-5 sm:p-6">
       <p class="section-kicker">All Tutorials</p>
       <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <PostCard v-for="post in posts" :key="post.path" :post="post" />
+        <article v-for="post in posts" :key="post.path" class="brutal-card group flex h-full flex-col p-4">
+          <h3 class="mb-2 text-lg font-bold uppercase leading-tight">
+            <NuxtLink :to="post.path" class="no-underline">
+              {{ post.title }}
+            </NuxtLink>
+          </h3>
+          <p class="mb-4 text-zinc-300">{{ post.description }}</p>
+          <div class="mt-auto flex items-end justify-between gap-3">
+            <div class="flex flex-wrap gap-2">
+              <TagPill v-for="tag in post.tags || []" :key="tag" :label="tag" />
+            </div>
+            <span class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 transition group-hover:text-white">open &gt;</span>
+          </div>
+        </article>
       </div>
     </section>
   </section>

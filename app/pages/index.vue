@@ -4,6 +4,22 @@ const projects = await useProjects()
 
 const latestPosts = computed(() => posts.slice(0, 3))
 const featuredProjects = computed(() => projects.slice(0, 3))
+const featuredRoadmaps = [
+  {
+    path: '/java',
+    title: 'Java Roadmap',
+    description: 'A to Z learning path from Java fundamentals to production-grade backend engineering.',
+    tags: ['roadmap', 'java'],
+    cover: '/banner-test.jpg'
+  },
+  {
+    path: '/seo',
+    title: 'SEO Roadmap',
+    description: 'Step-by-step roadmap from SEO fundamentals to technical execution and long-term growth.',
+    tags: ['roadmap', 'seo'],
+    cover: '/banner-test.jpg'
+  }
+]
 
 interface GithubStats {
   metrics: {
@@ -159,6 +175,19 @@ useSeoMeta({
         </div>
         <div class="grid gap-4 md:grid-cols-3">
           <ProjectCard v-for="project in featuredProjects" :key="project.path" :project="project" />
+        </div>
+      </section>
+
+      <section class="brutal-panel-dark p-5 sm:p-6">
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <p class="section-kicker">Learning Paths</p>
+            <h2 class="section-title">Roadmaps</h2>
+          </div>
+          <NuxtLink class="button-like section-link" to="/seo">View SEO roadmap</NuxtLink>
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          <PostCard v-for="roadmap in featuredRoadmaps" :key="roadmap.path" :post="roadmap" />
         </div>
       </section>
     </div>

@@ -4,7 +4,7 @@ defineProps<{
     path: string
     title: string
     description: string
-    date: string
+    date?: string
     cover?: string
     tags?: string[]
     readingTime?: string
@@ -23,7 +23,7 @@ defineProps<{
       >
     </NuxtLink>
 
-    <p class="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">
+    <p v-if="post.date" class="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">
       {{ new Date(post.date).toLocaleDateString('fr-FR') }}
       <span v-if="post.readingTime"> · {{ post.readingTime }}</span>
     </p>
