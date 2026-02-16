@@ -181,7 +181,9 @@ useSeoMeta({
             <div class="flex flex-wrap gap-2">
               <TagPill v-for="tag in post.tags || []" :key="tag" :label="tag" />
             </div>
-            <span class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 transition group-hover:text-white">open &gt;</span>
+            <NuxtLink :to="post.path" class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
+              open &gt;
+            </NuxtLink>
           </div>
         </article>
       </div>
