@@ -206,7 +206,7 @@ useSeoMeta({
             <p class="section-kicker">Learning Paths</p>
             <h2 class="section-title">Roadmaps</h2>
           </div>
-          <NuxtLink class="button-like section-link" to="/seo">View SEO roadmap</NuxtLink>
+          <NuxtLink class="button-like section-link" to="/roadmaps">View roadmaps</NuxtLink>
         </div>
         <div class="grid gap-4 md:grid-cols-3">
           <PostCard v-for="roadmap in featuredRoadmaps" :key="roadmap.path" :post="roadmap" />
