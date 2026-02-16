@@ -1,0 +1,25 @@
+{
+  "name": "pixel-terminal-blog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --no-fork",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.8.0",
+    "@nuxt/ui": "^3.2.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "nuxt": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "three": "^0.173.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.173.0",
+    "typescript": "^5.9.0",
+    "vue-tsc": "^2.2.0"
+  }
+}

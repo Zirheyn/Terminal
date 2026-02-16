@@ -1,0 +1,21 @@
+<svg width="1600" height="700" viewBox="0 0 1600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="700" fill="#050505"/>
+  <g opacity="0.32">
+    <path d="M0 110H1600" stroke="#2C2C2C"/>
+    <path d="M0 220H1600" stroke="#2C2C2C"/>
+    <path d="M0 330H1600" stroke="#2C2C2C"/>
+    <path d="M0 440H1600" stroke="#2C2C2C"/>
+    <path d="M0 550H1600" stroke="#2C2C2C"/>
+    <path d="M160 0V700" stroke="#2C2C2C"/>
+    <path d="M320 0V700" stroke="#2C2C2C"/>
+    <path d="M480 0V700" stroke="#2C2C2C"/>
+    <path d="M640 0V700" stroke="#2C2C2C"/>
+    <path d="M800 0V700" stroke="#2C2C2C"/>
+    <path d="M960 0V700" stroke="#2C2C2C"/>
+    <path d="M1120 0V700" stroke="#2C2C2C"/>
+    <path d="M1280 0V700" stroke="#2C2C2C"/>
+    <path d="M1440 0V700" stroke="#2C2C2C"/>
+  </g>
+  <rect x="70" y="78" width="1460" height="544" stroke="#4A4A4A" stroke-width="2"/>
+  <text x="120" y="612" fill="#D9D9D9" font-family="monospace" font-size="44" letter-spacing="2">BRIAC // ARTICLE BANNER</text>
+</svg>

@@ -1,0 +1,46 @@
+<script setup lang="ts">
+defineProps<{
+  post: {
+    path: string
+    title: string
+    description: string
+    date: string
+    cover?: string
+    tags?: string[]
+    readingTime?: string
+  }
+}>()
+</script>
+
+<template>
+  <article class="brutal-card group flex h-full flex-col p-4">
+    <NuxtLink :to="post.path" class="mb-3 block no-underline">
+      <img
+        :src="post.cover || '/banner-test.jpg'"
+        :alt="`${post.title} banner`"
+        class="h-28 w-full border border-zinc-700 object-cover"
+        loading="lazy"
+      >
+    </NuxtLink>
+
+    <p class="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">
+      {{ new Date(post.date).toLocaleDateString('fr-FR') }}
+      <span v-if="post.readingTime"> · {{ post.readingTime }}</span>
+    </p>
+
+    <h3 class="mb-2 text-xl font-bold uppercase leading-tight">
+      <NuxtLink :to="post.path" class="no-underline">
+        {{ post.title }}
+      </NuxtLink>
+    </h3>
+
+    <p class="mb-5 text-zinc-300">{{ post.description }}</p>
+
+    <div class="mt-auto flex items-end justify-between gap-3">
+      <div class="flex flex-wrap gap-2">
+        <TagPill v-for="tag in post.tags || []" :key="tag" :label="tag" />
+      </div>
+      <span class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 transition group-hover:text-white">open &gt;</span>
+    </div>
+  </article>
+</template>
