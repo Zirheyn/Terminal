@@ -10,14 +10,14 @@ const featuredRoadmaps = [
     title: 'Java Roadmap',
     description: 'A to Z learning path from Java fundamentals to production-grade backend engineering.',
     tags: ['roadmap', 'java'],
-    cover: '/banner-test.jpg'
+    cover: '/roadmaps/java-roadmap.webp'
   },
   {
     path: '/seo',
     title: 'SEO Roadmap',
     description: 'Step-by-step roadmap from SEO fundamentals to technical execution and long-term growth.',
     tags: ['roadmap', 'seo'],
-    cover: '/banner-test.jpg'
+    cover: '/roadmaps/seo-roadmap.webp'
   }
 ]
 
