@@ -615,6 +615,7 @@ button:hover,
   }
 }
 
+
 @media (prefers-reduced-motion: reduce) {
   a:hover {
     animation: none;

@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'fr'
       },
-      titleTemplate: '%s | Briac // Terminal Portfolio',
+      titleTemplate: '%s | Briac',
       meta: [
         {
           name: 'description',
@@ -32,11 +32,11 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:site_name',
-          content: 'Briac // Terminal Portfolio'
+          content: 'Briac'
         },
         {
           property: 'og:title',
-          content: 'Briac // Terminal Portfolio'
+          content: 'Briac'
         },
         {
           property: 'og:description',
@@ -52,6 +52,11 @@ export default defineNuxtConfig({
         }
       ],
       link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/favicon.png'
+        },
         {
           rel: 'alternate',
           type: 'application/rss+xml',
