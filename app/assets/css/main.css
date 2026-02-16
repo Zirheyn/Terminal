@@ -475,6 +475,22 @@ button:hover,
   padding-left: 1.25rem;
 }
 
+.blog-prose ul {
+  list-style: disc;
+}
+
+.blog-prose ol {
+  list-style: decimal;
+}
+
+.blog-prose li {
+  display: list-item;
+}
+
+.blog-prose li::marker {
+  color: #e7e7e7;
+}
+
 .blog-prose a {
   overflow-wrap: anywhere;
 }
