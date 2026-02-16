@@ -2,6 +2,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 const siteUrl = 'https://example.com'
 const githubToken = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.GITHUB_TOKEN || ''
+const footerGithubUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_GITHUB_URL || ''
+const footerLinkedinUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_LINKEDIN_URL || ''
+const footerEmail = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_EMAIL || ''
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-01',
@@ -70,7 +73,10 @@ export default defineNuxtConfig({
     githubToken,
     public: {
       siteUrl,
-      githubUsername: 'briacdev'
+      githubUsername: 'briacdev',
+      footerGithubUrl,
+      footerLinkedinUrl,
+      footerEmail
     }
   },
   nitro: {
