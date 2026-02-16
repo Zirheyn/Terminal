@@ -5,6 +5,7 @@ const githubToken = (globalThis as { process?: { env?: Record<string, string | u
 const footerGithubUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_GITHUB_URL || ''
 const footerLinkedinUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_LINKEDIN_URL || ''
 const footerEmail = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_EMAIL || ''
+const contentIntegrityCheck = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-01',
@@ -70,6 +71,9 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
+    content: {
+      integrityCheck: contentIntegrityCheck
+    },
     githubToken,
     public: {
       siteUrl,
