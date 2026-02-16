@@ -38,7 +38,7 @@ const visibleTags = computed(() => (props.project.tags || []).slice(0, 4))
       <div class="flex flex-wrap gap-2">
         <TagPill v-for="tag in visibleTags" :key="tag" :label="tag" />
       </div>
-      <NuxtLink :to="project.path" class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
+      <NuxtLink :to="project.path" class="card-open-link text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
         inspect &gt;
       </NuxtLink>
     </div>
