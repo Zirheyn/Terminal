@@ -49,7 +49,7 @@ useSeoMeta({
         <NuxtLink
           v-if="prevPost"
           :to="prevPost.path"
-          class="border border-zinc-700 p-4 no-underline hover:bg-white hover:text-black"
+          class="button-like border border-zinc-700 p-4 no-underline hover:bg-white hover:text-black"
         >
           <p class="text-xs uppercase text-zinc-400">Previous</p>
           <p class="text-base font-semibold">{{ prevPost.title }}</p>
@@ -57,7 +57,7 @@ useSeoMeta({
         <NuxtLink
           v-if="nextPost"
           :to="nextPost.path"
-          class="border border-zinc-700 p-4 no-underline hover:bg-white hover:text-black"
+          class="button-like border border-zinc-700 p-4 no-underline hover:bg-white hover:text-black"
         >
           <p class="text-xs uppercase text-zinc-400">Next</p>
           <p class="text-base font-semibold">{{ nextPost.title }}</p>
