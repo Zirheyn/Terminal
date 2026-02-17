@@ -221,12 +221,13 @@ button:hover,
   overflow: hidden;
   min-height: clamp(460px, 62vh, 760px);
   background-image:
-    radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 42%),
-    linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.58)),
+    radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 45%),
+    linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.46)),
     url("/hero-ascii.png");
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: 18% center, center, -180px center;
   background-size: 60% 100%, cover, min(86%, 860px);
+  filter: brightness(1.06) contrast(1.05);
 }
 
 .hero-with-image > .mx-auto {
@@ -254,8 +255,8 @@ button:hover,
   .hero-with-image {
     min-height: 560px;
     background-image:
-      radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 48%),
-      linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.72)),
+      radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 50%),
+      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)),
       url("/hero-ascii.png");
     background-position: center, center, center;
     background-size: 100% 100%, cover, cover;
