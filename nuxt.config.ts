@@ -5,6 +5,7 @@ const githubToken = (globalThis as { process?: { env?: Record<string, string | u
 const footerGithubUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_GITHUB_URL || ''
 const footerLinkedinUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_LINKEDIN_URL || ''
 const footerEmail = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_EMAIL || ''
+const umamiWebsiteId = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.UMAMI_WEBSITE_ID || ''
 const contentIntegrityCheck = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
@@ -67,7 +68,16 @@ export default defineNuxtConfig({
           title: 'RSS Feed',
           href: '/rss.xml'
         }
-      ]
+      ],
+      script: umamiWebsiteId
+        ? [
+            {
+              defer: true,
+              src: 'https://cloud.umami.is/script.js',
+              'data-website-id': umamiWebsiteId
+            }
+          ]
+        : []
     }
   },
   runtimeConfig: {
@@ -80,7 +90,8 @@ export default defineNuxtConfig({
       githubUsername: 'briacdev',
       footerGithubUrl,
       footerLinkedinUrl,
-      footerEmail
+      footerEmail,
+      umamiWebsiteId
     }
   },
   nitro: {
