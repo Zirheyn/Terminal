@@ -1,5 +1,7 @@
 # Terminal Portfolio
 
+![Site Preview](./public/preview.png)
+
 A minimalist black-and-white portfolio and blog built with **Nuxt 4**, **TypeScript**, and **Nuxt Content**.
 
 This project is designed for developers and security-focused creators who want:
@@ -94,6 +96,8 @@ Supported variables:
 - `FOOTER_GITHUB_URL` (optional)
 - `FOOTER_LINKEDIN_URL` (optional)
 - `FOOTER_EMAIL` (optional)
+- `UMAMI_WEBSITE_ID` (optional)
+  - enables Umami analytics script injection (`https://cloud.umami.is/script.js`)
 
 If footer variables are empty, their buttons are hidden automatically.
 
