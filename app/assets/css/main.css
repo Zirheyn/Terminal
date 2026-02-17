@@ -226,9 +226,10 @@ button:hover,
   position: relative;
   overflow: hidden;
   min-height: clamp(460px, 62vh, 760px);
+  background-color: #000;
   background-image:
-    radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 45%),
-    linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.46)),
+    radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 45%),
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.78)),
     url("/hero-ascii.png");
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: 18% center, center, -180px center;
@@ -260,9 +261,10 @@ button:hover,
 @media (max-width: 768px) {
   .hero-with-image {
     min-height: 560px;
+    background-color: #000;
     background-image:
-      radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 50%),
-      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)),
+      radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 50%),
+      linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.84)),
       url("/hero-ascii.png");
     background-position: center, center, center;
     background-size: 100% 100%, cover, cover;
