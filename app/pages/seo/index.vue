@@ -5,44 +5,101 @@ interface SeoRoadmapStep {
   title: string
   side: 'left' | 'right'
   points: string[]
-  path: string
+  path?: string
 }
 
 const steps: SeoRoadmapStep[] = [
   {
     id: 1,
     phase: 'Foundations',
-    title: 'How Search Algorithms Work',
+    title: 'Basics of SEO',
     side: 'left',
+    points: ['What SEO is and why it matters', 'Organic vs paid visibility', 'Core ranking principles']
+  },
+  {
+    id: 2,
+    phase: 'Foundations',
+    title: 'Role of SEO',
+    side: 'right',
+    points: ['SEO in product growth', 'Acquisition and retention impact', 'Long-term compounding effects']
+  },
+  {
+    id: 3,
+    phase: 'Foundations',
+    title: 'Keyword Research in SEO',
+    side: 'left',
+    points: ['Search intent mapping', 'Topic clustering', 'Keyword prioritization']
+  },
+  {
+    id: 4,
+    phase: 'Foundations',
+    title: 'How Search Algorithms Work',
+    side: 'right',
     points: ['Crawling and indexing basics', 'Ranking signals overview', 'Why relevance and authority matter'],
     path: '/seo/understanding-how-search-engine-algorithms-work'
   },
   {
-    id: 2,
+    id: 5,
     phase: 'Site Architecture',
     title: 'Structure Your Website for SEO',
-    side: 'right',
+    side: 'left',
     points: ['Clear hierarchy', 'Internal linking strategy', 'Topic clustering'],
     path: '/seo/how-to-structure-a-website-for-better-seo'
   },
   {
-    id: 3,
+    id: 6,
+    phase: 'Technical SEO',
+    title: 'SEO-Friendly URL Structure',
+    side: 'right',
+    points: ['Simple and stable slugs', 'No keyword stuffing', 'Consistent conventions'],
+    path: '/seo/a-guide-to-seo-friendly-url-structure'
+  },
+  {
+    id: 7,
+    phase: 'Technical SEO',
+    title: 'Mobile SEO',
+    side: 'left',
+    points: ['Mobile-first indexing', 'Responsive UX', 'Touch-friendly navigation']
+  },
+  {
+    id: 8,
     phase: 'Technical SEO',
     title: 'Robots.txt Fundamentals',
-    side: 'left',
+    side: 'right',
     points: ['Control crawler access', 'Avoid accidental blocking', 'Validate directives'],
     path: '/seo/what-is-robots-txt'
   },
   {
-    id: 4,
+    id: 9,
     phase: 'Technical SEO',
     title: 'XML Sitemap Setup',
-    side: 'right',
+    side: 'left',
     points: ['Expose important URLs', 'Handle canonical pages', 'Submit and monitor'],
     path: '/seo/introduction-to-xml-sitemap'
   },
   {
-    id: 5,
+    id: 10,
+    phase: 'Technical SEO',
+    title: 'Site Speed Optimization',
+    side: 'right',
+    points: ['Core Web Vitals basics', 'Rendering and asset optimization', 'Performance budget mindset']
+  },
+  {
+    id: 11,
+    phase: 'International SEO',
+    title: 'Multi-language SEO',
+    side: 'left',
+    points: ['Language targeting strategy', 'Locale-aware architecture', 'Regional content consistency']
+  },
+  {
+    id: 12,
+    phase: 'On-Page SEO',
+    title: 'Meta Tags',
+    side: 'right',
+    points: ['Title and meta descriptions', 'Indexation directives', 'SERP snippet quality']
+  },
+  {
+    id: 13,
     phase: 'On-Page SEO',
     title: 'Heading Tags and Content Hierarchy',
     side: 'left',
@@ -50,7 +107,7 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/understanding-heading-tags-in-seo'
   },
   {
-    id: 6,
+    id: 14,
     phase: 'On-Page SEO',
     title: 'Title Tag Optimization',
     side: 'right',
@@ -58,23 +115,36 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/title-tag-a-key-element-in-seo'
   },
   {
-    id: 7,
-    phase: 'On-Page SEO',
-    title: 'SEO-Friendly URL Structure',
-    side: 'left',
-    points: ['Simple and stable slugs', 'No keyword stuffing', 'Consistent conventions'],
-    path: '/seo/a-guide-to-seo-friendly-url-structure'
-  },
-  {
-    id: 8,
+    id: 15,
     phase: 'On-Page SEO',
     title: 'Noindex Strategy',
-    side: 'right',
+    side: 'left',
     points: ['When to hide pages', 'Avoid index bloat', 'Audit noindex usage'],
     path: '/seo/understanding-the-noindex-meta-tag-in-seo'
   },
   {
-    id: 9,
+    id: 16,
+    phase: 'On-Page SEO',
+    title: 'Keyword Usage and Placement',
+    side: 'right',
+    points: ['Match query intent', 'Avoid stuffing', 'Place terms naturally in strategic sections']
+  },
+  {
+    id: 17,
+    phase: 'On-Page SEO',
+    title: 'Content Quality',
+    side: 'left',
+    points: ['Depth and clarity', 'Unique value per page', 'Content freshness strategy']
+  },
+  {
+    id: 18,
+    phase: 'On-Page SEO',
+    title: 'Internal Linking',
+    side: 'right',
+    points: ['Contextual anchors', 'Topical relevance', 'Crawl depth control']
+  },
+  {
+    id: 19,
     phase: 'Media SEO',
     title: 'Image Optimization',
     side: 'left',
@@ -82,7 +152,7 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/image-optimization-for-seo'
   },
   {
-    id: 10,
+    id: 20,
     phase: 'International SEO',
     title: 'Hreflang Tags',
     side: 'right',
@@ -90,7 +160,21 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/understanding-hrefang-tags-and-their-importance-in-seo'
   },
   {
-    id: 11,
+    id: 21,
+    phase: 'On-Page SEO',
+    title: 'Open Graph and Social Metadata',
+    side: 'left',
+    points: ['Control social previews', 'Consistent brand snippets', 'Improve share CTR']
+  },
+  {
+    id: 22,
+    phase: 'On-Page SEO',
+    title: 'Duplicate Content',
+    side: 'right',
+    points: ['Canonical strategy', 'Prevent URL variants duplication', 'Consolidate ranking signals']
+  },
+  {
+    id: 23,
     phase: 'Authority',
     title: 'Backlinks and Link Signals',
     side: 'left',
@@ -98,7 +182,35 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/understanding-backlinks-and-their-importance-in-seo'
   },
   {
-    id: 12,
+    id: 24,
+    phase: 'Off-Page SEO',
+    title: 'Social Signals',
+    side: 'right',
+    points: ['Amplify content reach', 'Engagement-driven discovery', 'Brand trust reinforcement']
+  },
+  {
+    id: 25,
+    phase: 'Off-Page SEO',
+    title: 'Brand Mentions',
+    side: 'left',
+    points: ['Unlinked mentions tracking', 'Authority correlation', 'Digital PR opportunities']
+  },
+  {
+    id: 26,
+    phase: 'Off-Page SEO',
+    title: 'Guest Blogging',
+    side: 'right',
+    points: ['Editorial placement quality', 'Topical relevance', 'Avoid low-quality link schemes']
+  },
+  {
+    id: 27,
+    phase: 'Off-Page SEO',
+    title: 'Content Marketing',
+    side: 'left',
+    points: ['Content distribution loops', 'Lead magnet strategy', 'Evergreen assets']
+  },
+  {
+    id: 28,
     phase: 'Entity & Rich Results',
     title: 'Structured Data Markup',
     side: 'right',
@@ -106,7 +218,7 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/structured-data-markup-enhancing-seo-and-search-visibility'
   },
   {
-    id: 13,
+    id: 29,
     phase: 'Brand & Domain',
     title: 'Choosing a Domain for SEO',
     side: 'left',
@@ -114,12 +226,46 @@ const steps: SeoRoadmapStep[] = [
     path: '/seo/choosing-your-domain-name-for-seo'
   },
   {
-    id: 14,
-    phase: 'Learning Path',
-    title: 'SEO Roadmap Overview',
+    id: 30,
+    phase: 'SEO Analytics & Reporting',
+    title: 'Google Analytics',
     side: 'right',
-    points: ['Prioritization by impact', 'Execution order', 'Continuous monitoring loop'],
-    path: '/seo/search-engine-optimization-seo-roadmap'
+    points: ['Measure organic sessions', 'Track landing page performance', 'Segment acquisition channels']
+  },
+  {
+    id: 31,
+    phase: 'SEO Analytics & Reporting',
+    title: 'Google Search Console',
+    side: 'left',
+    points: ['Coverage and indexing checks', 'Query and page performance', 'Technical issue alerts']
+  },
+  {
+    id: 32,
+    phase: 'SEO Analytics & Reporting',
+    title: 'Traffic Analysis',
+    side: 'right',
+    points: ['Trends and seasonality', 'Content decay detection', 'Opportunity prioritization']
+  },
+  {
+    id: 33,
+    phase: 'SEO Tools',
+    title: 'SEMrush',
+    side: 'left',
+    points: ['Competitive keyword insights', 'Backlink analysis', 'Site audit workflows']
+  },
+  {
+    id: 34,
+    phase: 'SEO Tools',
+    title: 'PageSpeed Insights',
+    side: 'right',
+    points: ['CWV diagnostics', 'Performance opportunities', 'Template-level optimization']
+  },
+  {
+    id: 35,
+    phase: 'SEO Tools',
+    title: 'Google Keyword Planner',
+    side: 'left',
+    points: ['Search volume validation', 'Topic expansion ideas', 'Intent-informed planning']
   }
 ]
 
@@ -158,9 +304,16 @@ useSeoMeta({
           <ul class="node-list">
             <li v-for="point in step.points" :key="point">{{ point }}</li>
           </ul>
-          <NuxtLink :to="step.path" class="mt-3 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-300 no-underline hover:underline">
+          <NuxtLink
+            v-if="step.path"
+            :to="step.path"
+            class="mt-3 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-300 no-underline hover:underline"
+          >
             Open Tutorial >
           </NuxtLink>
+          <p v-else class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
+            Coming soon
+          </p>
         </div>
       </article>
     </div>
