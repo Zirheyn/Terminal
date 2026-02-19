@@ -27,8 +27,10 @@ const toolSections: ToolSection[] = [
     tools: [
       { name: 'TypeScript', url: 'https://www.typescriptlang.org/', note: 'Typed JavaScript for maintainable frontends.' },
       { name: 'Vue.js', url: 'https://vuejs.org/', note: 'Component-based UI architecture.' },
-      { name: 'Vite', url: 'https://vite.dev/', note: 'Fast dev server and build tooling.' },
-      { name: 'Vuetify', url: 'https://vuetifyjs.com/en/', note: 'UI component framework for Vue.' }
+      { name: 'Nuxt', url: 'https://nuxt.com/', note: 'Full-stack Vue framework for SSR, SSG, and content sites.' },
+      { name: 'Nuxt UI', url: 'https://ui.nuxt.com/', note: 'Composable UI primitives aligned with Nuxt workflows.' },
+      { name: 'Tailwind CSS', url: 'https://tailwindcss.com/', note: 'Utility-first styling for fast and consistent interfaces.' },
+      { name: 'shadcn/ui', url: 'https://ui.shadcn.com/', note: 'Reusable component patterns and design conventions.' }
     ]
   },
   {
