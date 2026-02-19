@@ -123,8 +123,6 @@ const steps: SeoRoadmapStep[] = [
   }
 ]
 
-const posts = await useSeoRoadmaps()
-
 useSeoMeta({
   title: 'SEO Roadmap',
   description: 'Visual SEO roadmap from fundamentals to advanced technical and content optimization topics.',
@@ -167,27 +165,6 @@ useSeoMeta({
       </article>
     </div>
 
-    <section class="space-y-3 border border-zinc-700 bg-zinc-950 p-5 sm:p-6">
-      <p class="section-kicker">All Tutorials</p>
-      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <article v-for="post in posts" :key="post.path" class="brutal-card group flex h-full flex-col p-4">
-          <h3 class="mb-2 text-lg font-bold uppercase leading-tight">
-            <NuxtLink :to="post.path" class="no-underline">
-              {{ post.title }}
-            </NuxtLink>
-          </h3>
-          <p class="mb-4 text-zinc-300">{{ post.description }}</p>
-          <div class="mt-auto flex items-end justify-between gap-3">
-            <div class="flex flex-wrap gap-2">
-              <TagPill v-for="tag in (post.tags || []).slice(0, 4)" :key="tag" :label="tag" />
-            </div>
-            <NuxtLink :to="post.path" class="card-open-link text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
-              open &gt;
-            </NuxtLink>
-          </div>
-        </article>
-      </div>
-    </section>
   </section>
 </template>
 
