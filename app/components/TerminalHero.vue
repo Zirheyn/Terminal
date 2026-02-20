@@ -4,9 +4,10 @@
       <p class="hero-kicker">briacd.com // personal log</p>
 
       <h1 class="hero-display mt-5">
-        <span class="block">DEV.</span>
-        <span class="block">SEC.</span>
-        <span class="block">OPS.</span>
+        <span class="sr-only">Briac Developer, Security and Operations Portfolio</span>
+        <span aria-hidden="true" class="block">DEV.</span>
+        <span aria-hidden="true" class="block">SEC.</span>
+        <span aria-hidden="true" class="block">OPS.</span>
       </h1>
 
       <div class="hero-divider" aria-hidden="true" />
