@@ -88,10 +88,12 @@ const contributionHoverLabel = computed(() => {
 })
 
 useSeoMeta({
-  title: 'Home',
-  description: 'Blog technique et portfolio personnel orienté cybersécurité et engineering.',
-  ogTitle: 'Home | Briac // Terminal Portfolio',
-  ogDescription: 'Blog technique et portfolio personnel orienté cybersécurité et engineering.'
+  title: 'Developer Portfolio, Security Research and Engineering Blog',
+  description: 'Personal website by Briac with cybersecurity write-ups, backend engineering notes, production tooling, projects, and practical roadmaps.',
+  ogTitle: 'Briac | Developer Portfolio, Security Research and Engineering Blog',
+  ogDescription: 'Personal website by Briac with cybersecurity write-ups, backend engineering notes, production tooling, projects, and practical roadmaps.',
+  twitterTitle: 'Briac | Developer Portfolio, Security Research and Engineering Blog',
+  twitterDescription: 'Cybersecurity write-ups, backend engineering notes, projects, and practical roadmaps.'
 })
 </script>
 
