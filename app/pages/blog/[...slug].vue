@@ -3,7 +3,7 @@ import type { BlogPost } from '~/composables/usePosts'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string[])
-const path = computed(() => `/${slug.value.join('/')}`)
+const path = computed(() => `/blog/${slug.value.join('/')}`)
 
 const post = await queryCollection('posts').path(path.value).first() as BlogPost | null
 

@@ -20,6 +20,7 @@ export default defineContentConfig({
         readingTime: z.string().optional()
       })
     }),
+
     roadmaps: defineCollection({
       type: 'page',
       source: 'roadmaps/**/*.md',
@@ -38,6 +39,7 @@ export default defineContentConfig({
         readingTime: z.string().optional()
       })
     }),
+
     projects: defineCollection({
       type: 'page',
       source: 'projects/**/*.md',
@@ -55,6 +57,7 @@ export default defineContentConfig({
           .default({})
       })
     }),
+    
     pages: defineCollection({
       type: 'page',
       source: '*.md',

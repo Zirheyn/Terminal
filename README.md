@@ -30,13 +30,13 @@ Then open: `http://localhost:3000`
 - Nuxt Content collections for:
   - blog articles
   - projects
-  - roadmaps (SEO track)
+  - roadmaps
 - Dark monochrome terminal-inspired UI
 - Responsive layout for mobile and desktop
 - Search + tag filters on blog/projects/roadmaps pages
 - Markdown article pages with TOC and prev/next navigation
 - Project pages with links and markdown content
-- SEO roadmap section under `/seo/*`
+- Roadmap section
 - RSS feed: `/rss.xml`
 - Sitemap: `/sitemap.xml`
 - Robots file: `/robots.txt`
