@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 
-const siteUrl = 'https://example.com'
+const siteUrl = 'https://briacd.com'
+
 const githubToken = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.GITHUB_TOKEN || ''
 const footerGithubUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_GITHUB_URL || ''
 const footerLinkedinUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_LINKEDIN_URL || ''
@@ -13,13 +14,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
+
   vite: {
     plugins: [tailwindcss()] as any
   },
+
   typescript: {
     strict: true,
     typeCheck: true
   },
+
   app: {
     head: {
       htmlAttrs: {
@@ -29,7 +33,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'description',
-          content: 'Blog et portfolio personnel orienté sécurité, recherche et ingénierie.'
+          content: 'Freelance developer focused on secure, production-ready web systems and practical tooling.'
         },
         {
           property: 'og:type',
@@ -37,15 +41,15 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:site_name',
-          content: 'Briac'
+          content: 'Briac Blog'
         },
         {
           property: 'og:title',
-          content: 'Briac'
+          content: 'Briac Blog'
         },
         {
           property: 'og:description',
-          content: 'Blog et portfolio personnel orienté sécurité, recherche et ingénierie.'
+          content: 'Freelance developer focused on secure, production-ready web systems and practical tooling.'
         },
         {
           property: 'og:url',
@@ -56,6 +60,7 @@ export default defineNuxtConfig({
           content: 'summary_large_image'
         }
       ],
+
       link: [
         {
           rel: 'icon',
@@ -69,6 +74,7 @@ export default defineNuxtConfig({
           href: '/rss.xml'
         }
       ],
+      
       script: umamiWebsiteId
         ? [
             {

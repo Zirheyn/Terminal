@@ -1,7 +1,8 @@
 {
-  "name": "pixel-terminal-blog",
+  "name": "terminal-blog",
   "private": true,
   "type": "module",
+  
   "scripts": {
     "dev": "nuxt dev --no-fork",
     "build": "nuxt build",
