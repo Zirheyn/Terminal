@@ -19,7 +19,7 @@ const toolSections: ToolSection[] = [
       { name: 'Swagger / OpenAPI', url: 'https://swagger.io/', note: 'API documentation and contract-first workflows.' },
       { name: 'Apache Maven', url: 'https://maven.apache.org/', note: 'Build lifecycle and dependency management.' },
       { name: 'Flyway', url: 'https://www.red-gate.com/products/flyway/community/', note: 'Versioned SQL migrations in delivery pipelines.' },
-      { name: 'Glowroot', url: 'https://glowroot.org/', note: 'Low-overhead Java APM for diagnostics.' }
+      { name: 'Pulse', url: 'https://pulse.briacd.com', note: 'Low-overhead Java APM for diagnostics.' }
     ]
   },
   {
