@@ -18,6 +18,25 @@ const nextProject = computed(() => (currentIndex > 0 ? allProjects[currentIndex 
 const coverUrl = computed(() => project.cover || '/banner-test.jpg')
 const visibleTags = computed(() => (project.tags || []).slice(0, 4))
 
+const stackIconMap: Record<string, { icon: string, color: string, label: string }> = {
+  nuxt: { icon: 'i-simple-icons-nuxtdotjs', color: '#00DC82', label: 'Nuxt' },
+  typescript: { icon: 'i-simple-icons-typescript', color: '#3178C6', label: 'TypeScript' },
+  content: { icon: 'i-simple-icons-markdown', color: '#FFFFFF', label: 'Content' },
+  tailwind: { icon: 'i-simple-icons-tailwindcss', color: '#06B6D4', label: 'Tailwind CSS' },
+  vue: { icon: 'i-simple-icons-vuedotjs', color: '#42B883', label: 'Vue.js' }
+}
+
+const isStackIcon = (
+  value: { icon: string, color: string, label: string } | undefined
+): value is { icon: string, color: string, label: string } => Boolean(value)
+
+const stackIcons = computed(() => {
+  return (project.tags || [])
+    .map((tag) => stackIconMap[tag.toLowerCase()])
+    .filter(isStackIcon)
+    .slice(0, 6)
+})
+
 useSeoMeta({
   title: project.title,
   description: project.description,
@@ -40,11 +59,27 @@ useSeoMeta({
         <img
           :src="coverUrl"
           :alt="`${project.title} cover image`"
-          class="mb-4 aspect-[16/6] w-full rounded-none border border-zinc-700 object-cover"
+          class="mb-4 h-[240px] w-full rounded-none border border-zinc-700 object-cover object-center sm:h-[300px] lg:h-[360px]"
           loading="lazy"
         >
         <p class="text-xs uppercase tracking-wide text-zinc-400">{{ project.year }}</p>
-        <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ project.title }}</h1>
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ project.title }}</h1>
+          <div v-if="stackIcons.length" class="flex items-center gap-2">
+            <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Stack</span>
+            <div class="flex items-center gap-2">
+              <UIcon
+                v-for="item in stackIcons"
+                :key="`${item.label}-${item.icon}`"
+                :name="item.icon"
+                class="size-4"
+                :style="{ color: item.color }"
+                :title="item.label"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        </div>
         <p class="max-w-3xl text-zinc-300">{{ project.description }}</p>
         <div class="flex flex-wrap gap-2">
           <TagPill v-for="tag in visibleTags" :key="tag" :label="tag" />
@@ -56,8 +91,9 @@ useSeoMeta({
             target="_blank"
             color="neutral"
             variant="outline"
-            class="button-like rounded-none border border-zinc-500 hover:bg-white hover:text-black"
+            class="cta-repository rounded-none border-2 border-zinc-500 bg-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-100 no-underline"
           >
+            <UIcon name="i-simple-icons-github" class="size-4" />
             Repository
           </UButton>
           <UButton

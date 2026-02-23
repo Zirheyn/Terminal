@@ -651,6 +651,35 @@ button:hover,
   color: #fff;
 }
 
+.cta-repository {
+  transition:
+    background-color 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.cta-repository:link,
+.cta-repository:visited {
+  color: #f4f4f5;
+  text-decoration: none;
+}
+
+.cta-repository:hover {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+  opacity: 1 !important;
+  animation: none !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+.cta-repository:hover:link,
+.cta-repository:hover:visited {
+  color: #000 !important;
+}
+
 .crt-cursor::after {
   content: "_";
   margin-left: 0.2rem;
