@@ -2,7 +2,6 @@
   "name": "terminal-blog",
   "private": true,
   "type": "module",
-  
   "scripts": {
     "dev": "nuxt dev --no-fork",
     "build": "nuxt build",
@@ -13,6 +12,7 @@
   "dependencies": {
     "@nuxt/content": "^3.8.0",
     "@nuxt/ui": "^3.2.0",
+    "@nuxtjs/i18n": "^10.2.3",
     "@tailwindcss/vite": "^4.1.0",
     "better-sqlite3": "^12.6.2",
     "nuxt": "^4.1.0",

@@ -1,25 +1,31 @@
 <script setup lang="ts">
 const posts = await usePosts()
 const projects = await useProjects()
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 const latestPosts = computed(() => posts.slice(0, 3))
 const featuredProjects = computed(() => projects.slice(0, 3))
-const featuredRoadmaps = [
+const featuredRoadmaps = computed(() => [
   {
-    path: '/java',
+    path: localePath('/java'),
     title: 'Java Roadmap',
-    description: 'A to Z learning path from Java fundamentals to production-grade backend engineering.',
+    description: locale.value === 'fr'
+      ? "Parcours d'apprentissage de A à Z, des bases Java à l'ingénierie backend en production."
+      : 'A to Z learning path from Java fundamentals to production-grade backend engineering.',
     tags: ['roadmap', 'java'],
     cover: '/roadmaps/java-roadmap.webp'
   },
   {
-    path: '/seo',
+    path: localePath('/seo'),
     title: 'SEO Roadmap',
-    description: 'Step-by-step roadmap from SEO fundamentals to technical execution and long-term growth.',
+    description: locale.value === 'fr'
+      ? 'Roadmap pas à pas, des fondamentaux SEO à la mise en pratique technique.'
+      : 'Step-by-step roadmap from SEO fundamentals to technical execution and long-term growth.',
     tags: ['roadmap', 'seo'],
     cover: '/roadmaps/seo-roadmap.webp'
   }
-]
+])
 
 interface GithubStats {
   metrics: {
@@ -74,26 +80,29 @@ const contributionLevelClass = (level: string) => {
 
 const contributionHoverLabel = computed(() => {
   if (!hoveredContribution.value) {
-    return 'Hover a cell to inspect daily contributions.'
+    return t('home.contributionHoverEmpty')
   }
 
-  const formattedDate = new Date(hoveredContribution.value.date).toLocaleDateString('en-US', {
+  const formattedDate = new Date(hoveredContribution.value.date).toLocaleDateString(locale.value === 'fr' ? 'fr-FR' : 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
   })
 
-  const suffix = hoveredContribution.value.count > 1 ? 'contributions' : 'contribution'
-  return `${formattedDate}: ${hoveredContribution.value.count} ${suffix}`
+  if (hoveredContribution.value.count > 1) {
+    return t('home.contributionHoverPlural', { date: formattedDate, count: hoveredContribution.value.count })
+  }
+
+  return t('home.contributionHoverSingle', { date: formattedDate, count: hoveredContribution.value.count })
 })
 
 useSeoMeta({
-  title: 'Developer Portfolio, Security Research and Engineering Blog',
-  description: 'Personal website by Briac with cybersecurity write-ups, backend engineering notes, production tooling, projects, and practical roadmaps.',
-  ogTitle: 'Briac | Developer Portfolio, Security Research and Engineering Blog',
-  ogDescription: 'Personal website by Briac with cybersecurity write-ups, backend engineering notes, production tooling, projects, and practical roadmaps.',
-  twitterTitle: 'Briac | Developer Portfolio, Security Research and Engineering Blog',
-  twitterDescription: 'Cybersecurity write-ups, backend engineering notes, projects, and practical roadmaps.'
+  title: () => t('home.seo.title'),
+  description: () => t('home.seo.description'),
+  ogTitle: () => t('home.seo.ogTitle'),
+  ogDescription: () => t('home.seo.description'),
+  twitterTitle: () => t('home.seo.ogTitle'),
+  twitterDescription: () => t('home.seo.twitterDescription')
 })
 </script>
 
@@ -108,15 +117,15 @@ useSeoMeta({
 
       <section class="brutal-panel-dark p-4 sm:p-6">
         <div class="mb-3 flex items-center justify-between gap-3 border-b border-zinc-700 pb-2">
-          <p class="section-kicker">Live Ops</p>
-          <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">real-time status</p>
+          <p class="section-kicker">{{ t('home.liveOps') }}</p>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{{ t('home.realTimeStatus') }}</p>
         </div>
 
         <div class="grid gap-4 lg:grid-cols-2">
           <div class="panel-window p-4 lg:col-span-2">
             <div class="mb-3 flex items-center justify-between gap-3">
-              <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Contribution Graph</p>
-              <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{{ metrics.contributionsYear }} in 1y</p>
+              <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{{ t('home.contributionGraph') }}</p>
+              <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{{ t('home.contributionsInYear', { count: metrics.contributionsYear }) }}</p>
             </div>
             <div class="contrib-heatmap" :style="{ gridTemplateColumns: `repeat(${calendarWeeks.length || 53}, minmax(0, 1fr))` }">
               <div v-for="(week, weekIndex) in calendarWeeks" :key="`week-${weekIndex}`" class="contrib-week">
@@ -125,7 +134,7 @@ useSeoMeta({
                   :key="day.date"
                   class="contrib-cell"
                   :class="contributionLevelClass(day.level)"
-                  :title="`${day.date}: ${day.count} contributions`"
+                  :title="t('home.contributionHoverPlural', { date: day.date, count: day.count })"
                   tabindex="0"
                   @mouseenter="hoveredContribution = { date: day.date, count: day.count }"
                   @mouseleave="hoveredContribution = null"
@@ -140,29 +149,29 @@ useSeoMeta({
 
         <div class="mt-4 grid gap-4 lg:grid-cols-2">
           <div class="panel-window p-4">
-            <p class="mb-3 text-[10px] uppercase tracking-[0.2em] text-zinc-500">Performance Metrics</p>
+            <p class="mb-3 text-[10px] uppercase tracking-[0.2em] text-zinc-500">{{ t('home.performanceMetrics') }}</p>
             <ul class="space-y-2">
               <li class="metric-row">
-                <span>Public Repos</span>
+                <span>{{ t('home.publicRepos') }}</span>
                 <strong>{{ metrics.publicRepos }}</strong>
               </li>
               <li class="metric-row">
-                <span>Total Stars</span>
+                <span>{{ t('home.totalStars') }}</span>
                 <strong>{{ metrics.totalStars }}</strong>
               </li>
               <li class="metric-row">
-                <span>Contributions (1y)</span>
+                <span>{{ t('home.contributionsYear') }}</span>
                 <strong>{{ metrics.contributionsYear }}</strong>
               </li>
               <li class="metric-row">
-                <span>Followers</span>
+                <span>{{ t('home.followers') }}</span>
                 <strong>{{ metrics.followers }}</strong>
               </li>
             </ul>
           </div>
 
           <div class="panel-window p-4">
-            <p class="mb-3 text-[10px] uppercase tracking-[0.2em] text-zinc-500">Repository Activity</p>
+            <p class="mb-3 text-[10px] uppercase tracking-[0.2em] text-zinc-500">{{ t('home.repositoryActivity') }}</p>
             <ul class="space-y-2 text-xs">
               <li v-for="repo in activeRepos" :key="repo.name" class="node-row">
                 <a :href="repo.url" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">
@@ -179,10 +188,10 @@ useSeoMeta({
       <section class="brutal-panel-dark p-5 sm:p-6">
         <div class="mb-4 flex items-center justify-between gap-3">
           <div>
-            <p class="section-kicker">Knowledge Base</p>
-            <h2 class="section-title">Latest Articles</h2>
+            <p class="section-kicker">{{ t('home.knowledgeBase') }}</p>
+            <h2 class="section-title">{{ t('home.latestArticles') }}</h2>
           </div>
-          <NuxtLink class="button-like section-link" to="/blog">View all</NuxtLink>
+          <NuxtLink class="button-like section-link" :to="localePath('/blog')">{{ t('home.viewAll') }}</NuxtLink>
         </div>
         <div class="grid gap-4 md:grid-cols-3">
           <PostCard v-for="post in latestPosts" :key="post.path" :post="post" />
@@ -192,10 +201,10 @@ useSeoMeta({
       <section class="brutal-panel-dark p-5 sm:p-6">
         <div class="mb-4 flex items-center justify-between gap-3">
           <div>
-            <p class="section-kicker">Execution Layer</p>
-            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-kicker">{{ t('home.executionLayer') }}</p>
+            <h2 class="section-title">{{ t('home.featuredProjects') }}</h2>
           </div>
-          <NuxtLink class="button-like section-link" to="/projects">View all</NuxtLink>
+          <NuxtLink class="button-like section-link" :to="localePath('/projects')">{{ t('home.viewAll') }}</NuxtLink>
         </div>
         <div class="grid gap-4 md:grid-cols-3">
           <ProjectCard v-for="project in featuredProjects" :key="project.path" :project="project" />
@@ -205,10 +214,10 @@ useSeoMeta({
       <section class="brutal-panel-dark p-5 sm:p-6">
         <div class="mb-4 flex items-center justify-between gap-3">
           <div>
-            <p class="section-kicker">Learning Paths</p>
-            <h2 class="section-title">Roadmaps</h2>
+            <p class="section-kicker">{{ t('home.learningPaths') }}</p>
+            <h2 class="section-title">{{ t('home.roadmaps') }}</h2>
           </div>
-          <NuxtLink class="button-like section-link" to="/roadmaps">View all</NuxtLink>
+          <NuxtLink class="button-like section-link" :to="localePath('/roadmaps')">{{ t('home.viewAll') }}</NuxtLink>
         </div>
         <div class="grid gap-4 md:grid-cols-3">
           <PostCard v-for="roadmap in featuredRoadmaps" :key="roadmap.path" :post="roadmap" />

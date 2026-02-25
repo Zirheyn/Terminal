@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
+const switchLocalePath = useSwitchLocalePath()
+const { locale, t } = useI18n()
+const currentLocale = computed(() => locale.value || 'en')
 
 const githubUrl = computed(() => config.public.footerGithubUrl || '')
 const linkedinUrl = computed(() => config.public.footerLinkedinUrl || '')
@@ -16,7 +19,30 @@ const emailHref = computed(() => {
         <p class="text-xs uppercase tracking-[0.2em] text-zinc-500">terminal portfolio</p>
         <p class="mt-1 text-sm text-zinc-300">© {{ new Date().getFullYear() }} Briac.</p>
       </div>
-      <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.12em]">
+      <div class="flex flex-wrap items-center justify-start gap-3 text-xs uppercase tracking-[0.12em] lg:justify-end">
+        <div class="flex items-center gap-1" :aria-label="t('header.locale')">
+          <NuxtLink
+            :to="switchLocalePath('en')"
+            :aria-current="currentLocale === 'en' ? 'true' : undefined"
+            class="button-like inline-flex items-center gap-1.5 border border-zinc-600 px-2 py-1 text-xs font-semibold uppercase tracking-[0.12em] no-underline transition"
+            :class="currentLocale === 'en'
+              ? '!border-white !bg-white !text-black'
+              : 'text-zinc-100 hover:border-white hover:bg-white hover:text-black'"
+          >
+            EN
+          </NuxtLink>
+          <NuxtLink
+            :to="switchLocalePath('fr')"
+            :aria-current="currentLocale === 'fr' ? 'true' : undefined"
+            class="button-like inline-flex items-center gap-1.5 border border-zinc-600 px-2 py-1 text-xs font-semibold uppercase tracking-[0.12em] no-underline transition"
+            :class="currentLocale === 'fr'
+              ? '!border-white !bg-white !text-black'
+              : 'text-zinc-100 hover:border-white hover:bg-white hover:text-black'"
+          >
+            FR
+          </NuxtLink>
+        </div>
+
         <a
           v-if="githubUrl"
           class="button-like inline-flex items-center gap-1.5 border border-zinc-600 px-2 py-1 no-underline hover:border-white hover:bg-white hover:text-black"

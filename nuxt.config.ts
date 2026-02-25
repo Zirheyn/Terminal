@@ -12,7 +12,7 @@ const contentIntegrityCheck = (globalThis as { process?: { env?: Record<string, 
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@nuxt/content'],
+  modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n'],
   css: ['~/assets/css/main.css'],
 
   vite: {
@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: 'fr'
+        lang: 'en'
       },
       titleTemplate: '%s | Briac',
       meta: [
@@ -103,6 +103,19 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/rss.xml', '/sitemap.xml', '/robots.txt']
+    }
+  },
+  i18n: {
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
+    langDir: 'locales',
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' }
+    ],
+    compilation: {
+      strictMessage: false
     }
   }
 })

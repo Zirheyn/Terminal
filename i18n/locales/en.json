@@ -1,0 +1,39 @@
+{
+  "header": {
+    "locale": "Language"
+  },
+  "hero": {
+    "kicker": "briacd.com // personal log",
+    "description": "Briac’s personal blog and portfolio. I share my experiences as a developer, cybersecurity explorer, and tech enthusiast.",
+    "ctaBlog": "Read the Blog",
+    "ctaProjects": "View Projects"
+  },
+  "home": {
+    "seo": {
+      "title": "Developer Portfolio, Security Research and Engineering Blog",
+      "description": "Personal website by Briac with cybersecurity write-ups, backend engineering notes, production tooling, projects, and practical roadmaps.",
+      "ogTitle": "Briac | Developer Portfolio, Security Research and Engineering Blog",
+      "twitterDescription": "Cybersecurity write-ups, backend engineering notes, projects, and practical roadmaps."
+    },
+    "liveOps": "Live Ops",
+    "realTimeStatus": "real-time status",
+    "contributionGraph": "Contribution Graph",
+    "contributionsInYear": "{count} in 1y",
+    "contributionHoverEmpty": "Hover a cell to inspect daily contributions.",
+    "contributionHoverSingle": "{date}: {count} contribution",
+    "contributionHoverPlural": "{date}: {count} contributions",
+    "performanceMetrics": "Performance Metrics",
+    "publicRepos": "Public Repos",
+    "totalStars": "Total Stars",
+    "contributionsYear": "Contributions (1y)",
+    "followers": "Followers",
+    "repositoryActivity": "Repository Activity",
+    "knowledgeBase": "Knowledge Base",
+    "latestArticles": "Latest Articles",
+    "executionLayer": "Execution Layer",
+    "featuredProjects": "Featured Projects",
+    "learningPaths": "Learning Paths",
+    "roadmaps": "Roadmaps",
+    "viewAll": "View all"
+  }
+}
