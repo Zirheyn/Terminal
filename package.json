@@ -2,9 +2,6 @@
   "name": "terminal-blog",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=20.11.1"
-  },
   "scripts": {
     "dev": "nuxt dev --no-fork",
     "build": "nuxt build",
