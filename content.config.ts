@@ -57,6 +57,24 @@ export default defineContentConfig({
           .default({})
       })
     }),
+
+    projectsFr: defineCollection({
+      type: 'page',
+      source: 'projects-fr/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        tags: z.array(z.string()).default([]),
+        year: z.number(),
+        cover: z.string().optional(),
+        links: z
+          .object({
+            repo: z.string().optional(),
+            demo: z.string().optional()
+          })
+          .default({})
+      })
+    }),
     
     pages: defineCollection({
       type: 'page',

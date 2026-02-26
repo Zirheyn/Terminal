@@ -4,20 +4,35 @@ import type { ProjectItem } from '~/composables/useProjects'
 
 const route = useRoute()
 const localePath = useLocalePath()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const slug = computed(() => route.params.slug as string[])
-const path = computed(() => `/projects/${slug.value.join('/')}`)
+const projectSlug = computed(() => slug.value.join('/'))
+const defaultPath = computed(() => `/projects/${projectSlug.value}`)
+const frPath = computed(() => `/projects-fr/${projectSlug.value}`)
 
-const project = await queryCollection('projects').path(path.value).first() as ProjectItem | null
+const defaultProject = await queryCollection('projects').path(defaultPath.value).first() as ProjectItem | null
+const projectFr = locale.value === 'fr'
+  ? await queryCollection('projectsFr').path(frPath.value).first() as ProjectItem | null
+  : null
+const project = projectFr || defaultProject
 
 if (!project) {
   throw createError({ statusCode: 404, statusMessage: 'Project not found' })
 }
 
 const allProjects = await useProjects()
-const currentIndex = allProjects.findIndex((item) => item.path === project.path)
-const prevProject = computed(() => (currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null))
-const nextProject = computed(() => (currentIndex > 0 ? allProjects[currentIndex - 1] : null))
+const currentPath = computed(() => defaultProject?.path || project.path)
+const currentIndex = computed(() => allProjects.findIndex((item) => item.path === currentPath.value))
+const prevProject = computed(() =>
+  currentIndex.value >= 0 && currentIndex.value < allProjects.length - 1
+    ? allProjects[currentIndex.value + 1]
+    : null
+)
+const nextProject = computed(() =>
+  currentIndex.value > 0
+    ? allProjects[currentIndex.value - 1]
+    : null
+)
 const coverUrl = computed(() => project.cover || '/banner-test.jpg')
 const visibleTags = computed(() => (project.tags || []).slice(0, 4))
 
