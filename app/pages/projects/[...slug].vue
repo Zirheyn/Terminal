@@ -9,10 +9,13 @@ const slug = computed(() => route.params.slug as string[])
 const projectSlug = computed(() => slug.value.join('/'))
 const defaultPath = computed(() => `/projects/${projectSlug.value}`)
 const frPath = computed(() => `/projects-fr/${projectSlug.value}`)
+const queryCollectionLoose = queryCollection as unknown as (collection: string) => {
+  path: (value: string) => { first: () => Promise<ProjectItem | null> }
+}
 
 const defaultProject = await queryCollection('projects').path(defaultPath.value).first() as ProjectItem | null
 const projectFr = locale.value === 'fr'
-  ? await queryCollection('projectsFr').path(frPath.value).first() as ProjectItem | null
+  ? await queryCollectionLoose('projectsFr').path(frPath.value).first()
   : null
 const project = projectFr || defaultProject
 
