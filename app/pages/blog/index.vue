@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
+
 const search = ref('')
 const activeTag = ref<string | null>(null)
 const posts = await usePosts()
+const { t } = useI18n()
 
 const allTags = computed(() => {
   return Array.from(new Set(posts.flatMap((post) => post.tags))).sort((a, b) => a.localeCompare(b))
@@ -24,33 +27,41 @@ const filteredPosts = computed(() => {
   })
 })
 
+const visibleCountLabel = computed(() => {
+  if (filteredPosts.value.length > 1 || filteredPosts.value.length === 0) {
+    return t('blog.visiblePlural', { count: filteredPosts.value.length })
+  }
+
+  return t('blog.visibleSingle', { count: filteredPosts.value.length })
+})
+
 useSeoMeta({
-  title: 'Blog',
-  description: 'Technical articles on security, tooling, backend engineering, and practical implementation notes.',
-  ogTitle: 'Blog | Briac',
-  ogDescription: 'Technical articles on security, tooling, backend engineering, and practical implementation notes.'
+  title: () => t('blog.seo.title'),
+  description: () => t('blog.seo.description'),
+  ogTitle: () => t('blog.seo.ogTitle'),
+  ogDescription: () => t('blog.seo.description')
 })
 </script>
 
 <template>
   <section class="space-y-8">
     <div class="space-y-3 border border-zinc-700 bg-zinc-950 p-5 sm:p-7">
-      <p class="section-kicker">Knowledge Base</p>
-      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">Blog</h1>
+      <p class="section-kicker">{{ t('blog.kicker') }}</p>
+      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">{{ t('blog.title') }}</h1>
       <p class="max-w-3xl text-zinc-300">
-        Technical write-ups focused on cybersecurity, software engineering, architecture, and practical tooling.
+        {{ t('blog.description') }}
       </p>
     </div>
 
     <div class="space-y-4 border border-zinc-700 bg-zinc-950 p-5 sm:p-6">
-      <SearchInput v-model="search" placeholder="Filter articles by title, description or tag..." />
+      <SearchInput v-model="search" :placeholder="t('blog.searchPlaceholder')" />
       <div class="flex flex-wrap gap-2">
         <button
           class="button-like tag-filter-btn border px-3 py-1 text-sm"
           :class="!activeTag ? 'bg-white text-black border-white' : 'border-zinc-700 hover:bg-white hover:text-black'"
           @click="activeTag = null"
         >
-          All
+          {{ t('blog.all') }}
         </button>
         <button
           v-for="tag in allTags"
@@ -63,7 +74,7 @@ useSeoMeta({
         </button>
       </div>
       <p class="text-xs uppercase tracking-[0.14em] text-zinc-500">
-        {{ filteredPosts.length }} article<span v-if="filteredPosts.length > 1">s</span> visible
+        {{ visibleCountLabel }}
       </p>
     </div>
 
@@ -72,7 +83,7 @@ useSeoMeta({
     </div>
 
     <p v-if="!filteredPosts.length" class="border border-zinc-700 p-4 text-zinc-400">
-      No matching articles found.
+      {{ t('blog.empty') }}
     </p>
   </section>
 </template>

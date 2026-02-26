@@ -35,5 +35,20 @@
     "learningPaths": "Parcours",
     "roadmaps": "Roadmaps",
     "viewAll": "Voir tout"
+  },
+  "blog": {
+    "seo": {
+      "title": "Blog",
+      "description": "Articles techniques sur la sécurité, l'outillage, le backend engineering et des implémentations concrètes.",
+      "ogTitle": "Blog | Briac"
+    },
+    "kicker": "Base de connaissances",
+    "title": "Blog",
+    "description": "Analyses techniques autour de la cybersécurité, de l'ingénierie logicielle, de l'architecture et des outils pratiques.",
+    "searchPlaceholder": "Filtrer les articles par titre, description ou tag...",
+    "all": "Tous",
+    "visibleSingle": "{count} article visible",
+    "visiblePlural": "{count} articles visibles",
+    "empty": "Aucun article ne correspond à cette recherche."
   }
 }

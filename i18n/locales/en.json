@@ -35,5 +35,20 @@
     "learningPaths": "Learning Paths",
     "roadmaps": "Roadmaps",
     "viewAll": "View all"
+  },
+  "blog": {
+    "seo": {
+      "title": "Blog",
+      "description": "Technical articles on security, tooling, backend engineering, and practical implementation notes.",
+      "ogTitle": "Blog | Briac"
+    },
+    "kicker": "Knowledge Base",
+    "title": "Blog",
+    "description": "Technical write-ups focused on cybersecurity, software engineering, architecture, and practical tooling.",
+    "searchPlaceholder": "Filter articles by title, description or tag...",
+    "all": "All",
+    "visibleSingle": "{count} article visible",
+    "visiblePlural": "{count} articles visible",
+    "empty": "No matching articles found."
   }
 }
