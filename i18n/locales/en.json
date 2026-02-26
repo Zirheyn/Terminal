@@ -50,5 +50,31 @@
     "visibleSingle": "{count} article visible",
     "visiblePlural": "{count} articles visible",
     "empty": "No matching articles found."
+  },
+  "projects": {
+    "seo": {
+      "title": "Projects",
+      "description": "Selected projects with technical context, links, and filtering by stack or domain.",
+      "ogTitle": "Projects | Briac"
+    },
+    "kicker": "Build Log",
+    "title": "Projects",
+    "description": "Curated personal projects with implementation notes, stack tags, and direct access to live demos or repositories.",
+    "searchPlaceholder": "Filter projects by title, description or tag...",
+    "all": "All",
+    "visibleSingle": "{count} project visible",
+    "visiblePlural": "{count} projects visible",
+    "empty": "No matching project."
+  },
+  "projectsDetail": {
+    "back": "Back to Projects",
+    "stack": "Stack",
+    "repository": "Repository",
+    "liveDemo": "Live Demo",
+    "navigationAria": "Project navigation",
+    "previous": "Previous",
+    "next": "Next",
+    "toc": "Table of contents",
+    "noHeadings": "No headings in this project page."
   }
 }

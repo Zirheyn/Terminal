@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useI18n, useLocalePath } from '#i18n'
 import type { ProjectItem } from '~/composables/useProjects'
 
 const route = useRoute()
+const localePath = useLocalePath()
+const { t } = useI18n()
 const slug = computed(() => route.params.slug as string[])
 const path = computed(() => `/projects/${slug.value.join('/')}`)
 
@@ -50,11 +53,11 @@ useSeoMeta({
     <div class="blog-article-main space-y-6">
       <header class="space-y-3 border-b border-zinc-800 pb-6">
         <NuxtLink
-          to="/projects"
+          :to="localePath('/projects')"
           class="button-like inline-flex items-center gap-2 border border-zinc-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-300 no-underline hover:border-white hover:bg-white hover:text-black"
         >
           <span>←</span>
-          <span>Back to Projects</span>
+          <span>{{ t('projectsDetail.back') }}</span>
         </NuxtLink>
         <img
           :src="coverUrl"
@@ -66,7 +69,7 @@ useSeoMeta({
         <div class="flex flex-wrap items-start justify-between gap-3">
           <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ project.title }}</h1>
           <div v-if="stackIcons.length" class="flex items-center gap-2">
-            <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Stack</span>
+            <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">{{ t('projectsDetail.stack') }}</span>
             <div class="flex items-center gap-2">
               <UIcon
                 v-for="item in stackIcons"
@@ -94,7 +97,7 @@ useSeoMeta({
             class="cta-repository rounded-none border-2 border-zinc-500 bg-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-100 no-underline"
           >
             <UIcon name="i-simple-icons-github" class="size-4" />
-            Repository
+            {{ t('projectsDetail.repository') }}
           </UButton>
           <UButton
             v-if="project.links?.demo"
@@ -105,20 +108,20 @@ useSeoMeta({
             class="cta-live-demo rounded-none border-2 border-white bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-black no-underline"
           >
             <UIcon name="i-lucide-external-link" class="size-4" />
-            Live Demo
+            {{ t('projectsDetail.liveDemo') }}
           </UButton>
         </div>
       </header>
 
       <ContentRenderer :value="project" class="prose prose-invert blog-prose max-w-none" />
 
-      <nav class="grid gap-4 border-t border-zinc-800 pt-6 sm:grid-cols-2" aria-label="Project navigation">
+      <nav class="grid gap-4 border-t border-zinc-800 pt-6 sm:grid-cols-2" :aria-label="t('projectsDetail.navigationAria')">
         <NuxtLink
           v-if="prevProject"
           :to="prevProject.path"
           class="button-like border border-zinc-700 p-4 no-underline hover:bg-white hover:text-black"
         >
-          <p class="text-xs uppercase text-zinc-400">Previous</p>
+          <p class="text-xs uppercase text-zinc-400">{{ t('projectsDetail.previous') }}</p>
           <p class="text-base font-semibold">{{ prevProject.title }}</p>
         </NuxtLink>
         <NuxtLink
@@ -126,20 +129,20 @@ useSeoMeta({
           :to="nextProject.path"
           class="button-like border border-zinc-700 p-4 no-underline hover:bg-white hover:text-black"
         >
-          <p class="text-xs uppercase text-zinc-400">Next</p>
+          <p class="text-xs uppercase text-zinc-400">{{ t('projectsDetail.next') }}</p>
           <p class="text-base font-semibold">{{ nextProject.title }}</p>
         </NuxtLink>
       </nav>
     </div>
 
     <aside class="space-y-3 lg:sticky lg:top-24 lg:self-start">
-      <p class="text-xs uppercase tracking-wide text-zinc-400">Table of contents</p>
+      <p class="text-xs uppercase tracking-wide text-zinc-400">{{ t('projectsDetail.toc') }}</p>
       <ul v-if="project.body?.toc?.links?.length" class="space-y-2 border border-zinc-700 p-4 text-sm">
         <li v-for="item in project.body.toc.links" :key="item.id">
           <a :href="`#${item.id}`" class="no-underline hover:underline">{{ item.text }}</a>
         </li>
       </ul>
-      <p v-else class="border border-zinc-700 p-4 text-sm text-zinc-400">No headings in this project page.</p>
+      <p v-else class="border border-zinc-700 p-4 text-sm text-zinc-400">{{ t('projectsDetail.noHeadings') }}</p>
     </aside>
   </article>
 </template>
