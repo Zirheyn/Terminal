@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useLocalePath } from '#i18n'
+
 const route = useRoute()
 const localePath = useLocalePath()
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n, useSwitchLocalePath } from '#i18n'
+
 const config = useRuntimeConfig()
 const switchLocalePath = useSwitchLocalePath()
 const { locale, t } = useI18n()

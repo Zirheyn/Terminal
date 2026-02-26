@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n, useLocalePath } from '#i18n'
+
 const posts = await usePosts()
 const projects = await useProjects()
 const { t, locale } = useI18n()
