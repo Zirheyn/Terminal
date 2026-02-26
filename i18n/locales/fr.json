@@ -76,5 +76,54 @@
     "next": "Suivant",
     "toc": "Table des matières",
     "noHeadings": "Aucun titre disponible dans cette page projet."
+  },
+  "about": {
+    "seo": {
+      "title": "À propos",
+      "description": "Profil de développeur freelance et stack technique.",
+      "ogTitle": "À propos | Briac"
+    },
+    "kicker": "Profil",
+    "title": "À propos",
+    "description": "Développeur freelance orienté systèmes web sécurisés, production-ready et outillage pratique.",
+    "body1": "Je suis développeur freelance et je conçois des applications sécurisées et maintenables, avec un fort accent sur le backend engineering, la conception d'API et la fiabilité en production.",
+    "body2": "Cette stack évolue en continu au fil de mes explorations et des besoins projets. Je reste en veille active et j'expérimente régulièrement de nouvelles technologies.",
+    "toolingKicker": "Outils",
+    "toolingTitle": "Stack actuelle",
+    "toolLabel": "outil",
+    "open": "ouvrir >",
+    "sections": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Base de données",
+      "ide": "IDE",
+      "versionControl": "Versioning",
+      "infrastructure": "Infrastructure",
+      "dataAndFiles": "Data et fichiers"
+    },
+    "notes": {
+      "java": "Langage principal pour les systèmes backend.",
+      "springBoot": "Développement rapide d'API prêtes pour la production.",
+      "swagger": "Documentation d'API et workflows contract-first.",
+      "maven": "Gestion du cycle de build et des dépendances.",
+      "flyway": "Migrations SQL versionnées dans les pipelines de livraison.",
+      "pulse": "APM Java léger pour le diagnostic.",
+      "typescript": "JavaScript typé pour des frontends maintenables.",
+      "vue": "Architecture UI orientée composants.",
+      "nuxt": "Framework Vue full-stack pour SSR, SSG et sites content.",
+      "nuxtUi": "Primitives UI composables intégrées aux workflows Nuxt.",
+      "tailwind": "Styling utility-first pour des interfaces rapides et cohérentes.",
+      "shadcn": "Patterns de composants réutilisables et conventions de design.",
+      "postgresql": "Base de données relationnelle principale.",
+      "dbeaver": "Gestion de base de données et outillage SQL.",
+      "drawdb": "Schémas de données et génération SQL.",
+      "intellij": "IDE principal pour Java et le backend.",
+      "vscode": "Éditeur léger pour le web et l'infra.",
+      "git": "Base du versioning et de la collaboration.",
+      "github": "Hébergement du code, review et workflows de delivery.",
+      "coolify": "Plateforme de déploiement auto-hébergée.",
+      "cloudpanel": "Panneau de contrôle serveur et hébergement.",
+      "jsonCrack": "Visualisation interactive de JSON et structures complexes."
+    }
   }
 }

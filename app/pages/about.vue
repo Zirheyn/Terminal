@@ -1,80 +1,78 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
+
 interface ToolItem {
   name: string
   url: string
-  note: string
+  noteKey: string
 }
 
 interface ToolSection {
-  title: string
+  titleKey: string
   tools: ToolItem[]
 }
 
+const { t } = useI18n()
+
 const toolSections: ToolSection[] = [
   {
-    title: 'Backend',
+    titleKey: 'about.sections.backend',
     tools: [
-      { name: 'Java', url: 'https://java.com/', note: 'Core language for backend systems.' },
-      { name: 'Spring Boot', url: 'https://spring.io/projects/spring-boot', note: 'Rapid development for production APIs.' },
-      { name: 'Swagger / OpenAPI', url: 'https://swagger.io/', note: 'API documentation and contract-first workflows.' },
-      { name: 'Apache Maven', url: 'https://maven.apache.org/', note: 'Build lifecycle and dependency management.' },
-      { name: 'Flyway', url: 'https://www.red-gate.com/products/flyway/community/', note: 'Versioned SQL migrations in delivery pipelines.' },
-      { name: 'Pulse', url: 'https://pulse.briacd.com', note: 'Low-overhead Java APM for diagnostics.' }
+      { name: 'Java', url: 'https://java.com/', noteKey: 'about.notes.java' },
+      { name: 'Spring Boot', url: 'https://spring.io/projects/spring-boot', noteKey: 'about.notes.springBoot' },
+      { name: 'Swagger / OpenAPI', url: 'https://swagger.io/', noteKey: 'about.notes.swagger' },
+      { name: 'Apache Maven', url: 'https://maven.apache.org/', noteKey: 'about.notes.maven' },
+      { name: 'Flyway', url: 'https://www.red-gate.com/products/flyway/community/', noteKey: 'about.notes.flyway' },
+      { name: 'Pulse', url: 'https://pulse.briacd.com', noteKey: 'about.notes.pulse' }
     ]
   },
   {
-    title: 'Frontend',
+    titleKey: 'about.sections.frontend',
     tools: [
-      { name: 'TypeScript', url: 'https://www.typescriptlang.org/', note: 'Typed JavaScript for maintainable frontends.' },
-      { name: 'Vue.js', url: 'https://vuejs.org/', note: 'Component-based UI architecture.' },
-      { name: 'Nuxt', url: 'https://nuxt.com/', note: 'Full-stack Vue framework for SSR, SSG, and content sites.' },
-      { name: 'Nuxt UI', url: 'https://ui.nuxt.com/', note: 'Composable UI primitives aligned with Nuxt workflows.' },
-      { name: 'Tailwind CSS', url: 'https://tailwindcss.com/', note: 'Utility-first styling for fast and consistent interfaces.' },
-      { name: 'shadcn/ui', url: 'https://ui.shadcn.com/', note: 'Reusable component patterns and design conventions.' }
+      { name: 'TypeScript', url: 'https://www.typescriptlang.org/', noteKey: 'about.notes.typescript' },
+      { name: 'Vue.js', url: 'https://vuejs.org/', noteKey: 'about.notes.vue' },
+      { name: 'Nuxt', url: 'https://nuxt.com/', noteKey: 'about.notes.nuxt' },
+      { name: 'Nuxt UI', url: 'https://ui.nuxt.com/', noteKey: 'about.notes.nuxtUi' },
+      { name: 'Tailwind CSS', url: 'https://tailwindcss.com/', noteKey: 'about.notes.tailwind' },
+      { name: 'shadcn/ui', url: 'https://ui.shadcn.com/', noteKey: 'about.notes.shadcn' }
     ]
   },
   {
-    title: 'Database',
+    titleKey: 'about.sections.database',
     tools: [
-      { name: 'PostgreSQL', url: 'https://www.postgresql.org/', note: 'Primary relational database.' },
-      { name: 'DBeaver', url: 'https://dbeaver.io/', note: 'Database management and query tooling.' },
-      { name: 'drawDB', url: 'https://www.drawdb.app/', note: 'Schema diagrams and SQL generation.' }
+      { name: 'PostgreSQL', url: 'https://www.postgresql.org/', noteKey: 'about.notes.postgresql' },
+      { name: 'DBeaver', url: 'https://dbeaver.io/', noteKey: 'about.notes.dbeaver' },
+      { name: 'drawDB', url: 'https://www.drawdb.app/', noteKey: 'about.notes.drawdb' }
     ]
   },
   {
-    title: 'IDE',
+    titleKey: 'about.sections.ide',
     tools: [
-      { name: 'IntelliJ IDEA', url: 'https://www.jetbrains.com/idea/', note: 'Main IDE for Java and backend work.' },
-      { name: 'Visual Studio Code', url: 'https://code.visualstudio.com/', note: 'Lightweight editor for web and infra tasks.' }
+      { name: 'IntelliJ IDEA', url: 'https://www.jetbrains.com/idea/', noteKey: 'about.notes.intellij' },
+      { name: 'Visual Studio Code', url: 'https://code.visualstudio.com/', noteKey: 'about.notes.vscode' }
     ]
   },
   {
-    title: 'Version Control',
+    titleKey: 'about.sections.versionControl',
     tools: [
-      { name: 'Git', url: 'https://git-scm.com/', note: 'Versioning and collaboration baseline.' },
-      { name: 'GitHub', url: 'https://github.com/', note: 'Code hosting, review, and delivery workflows.' }
+      { name: 'Git', url: 'https://git-scm.com/', noteKey: 'about.notes.git' },
+      { name: 'GitHub', url: 'https://github.com/', noteKey: 'about.notes.github' }
     ]
   },
   {
-    title: 'Infrastructure',
+    titleKey: 'about.sections.infrastructure',
     tools: [
-      { name: 'Coolify', url: 'https://coolify.io/', note: 'Self-hosted deployment platform.' },
-      { name: 'CloudPanel', url: 'https://www.cloudpanel.io/', note: 'Server and hosting control panel.' }
+      { name: 'Coolify', url: 'https://coolify.io/', noteKey: 'about.notes.coolify' },
+      { name: 'CloudPanel', url: 'https://www.cloudpanel.io/', noteKey: 'about.notes.cloudpanel' }
     ]
   },
   {
-    title: 'Data and Files',
+    titleKey: 'about.sections.dataAndFiles',
     tools: [
-      { name: 'JSON Crack', url: 'https://jsoncrack.com/', note: 'Visualize JSON and complex object structures.' }
+      { name: 'JSON Crack', url: 'https://jsoncrack.com/', noteKey: 'about.notes.jsonCrack' }
     ]
   }
 ]
-
-const about = await queryCollection('pages').path('/about').first()
-
-if (!about) {
-  throw createError({ statusCode: 404, statusMessage: 'About page not found' })
-}
 
 const faviconUrl = (url: string) => {
   try {
@@ -101,34 +99,37 @@ const faviconFallbackUrl = (url: string) => {
 }
 
 useSeoMeta({
-  title: 'About',
-  description: about.description || 'Freelance developer profile and technical stack.',
-  ogTitle: 'About | Briac',
-  ogDescription: about.description || 'Freelance developer profile and technical stack.'
+  title: () => t('about.seo.title'),
+  description: () => t('about.seo.description'),
+  ogTitle: () => t('about.seo.ogTitle'),
+  ogDescription: () => t('about.seo.description')
 })
 </script>
 
 <template>
   <section class="space-y-8">
     <header class="space-y-3 border border-zinc-700 bg-zinc-950 p-5 sm:p-7">
-      <p class="section-kicker">Profile</p>
-      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">{{ about.title }}</h1>
-      <p v-if="about.description" class="max-w-3xl text-zinc-300">{{ about.description }}</p>
+      <p class="section-kicker">{{ t('about.kicker') }}</p>
+      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">{{ t('about.title') }}</h1>
+      <p class="max-w-3xl text-zinc-300">{{ t('about.description') }}</p>
     </header>
 
     <section class="border border-zinc-700 bg-zinc-950 p-5 sm:p-6">
-      <ContentRenderer :value="about" class="prose prose-invert blog-prose max-w-none" />
+      <div class="prose prose-invert blog-prose max-w-none">
+        <p>{{ t('about.body1') }}</p>
+        <p>{{ t('about.body2') }}</p>
+      </div>
     </section>
 
     <section class="space-y-6">
       <div class="space-y-2">
-        <p class="section-kicker">Tooling</p>
-        <h2 class="text-2xl font-black uppercase tracking-tight sm:text-3xl">Current Stack</h2>
+        <p class="section-kicker">{{ t('about.toolingKicker') }}</p>
+        <h2 class="text-2xl font-black uppercase tracking-tight sm:text-3xl">{{ t('about.toolingTitle') }}</h2>
       </div>
 
       <div class="space-y-6">
-        <div v-for="section in toolSections" :key="section.title" class="space-y-3">
-          <h3 class="text-lg font-bold uppercase tracking-[0.08em] text-zinc-200">{{ section.title }}</h3>
+        <div v-for="section in toolSections" :key="section.titleKey" class="space-y-3">
+          <h3 class="text-lg font-bold uppercase tracking-[0.08em] text-zinc-200">{{ t(section.titleKey) }}</h3>
           <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             <article v-for="tool in section.tools" :key="tool.url" class="brutal-card group flex h-full flex-col p-4">
               <div class="mb-3 flex items-center gap-3">
@@ -147,11 +148,11 @@ useSeoMeta({
                     img.src = '/fallback-tool.svg'
                   }"
                 >
-                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">tool</p>
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">{{ t('about.toolLabel') }}</p>
               </div>
 
               <h4 class="mb-2 text-lg font-bold uppercase leading-tight">{{ tool.name }}</h4>
-              <p class="mb-5 text-sm leading-6 text-zinc-300">{{ tool.note }}</p>
+              <p class="mb-5 text-sm leading-6 text-zinc-300">{{ t(tool.noteKey) }}</p>
 
               <div class="mt-auto flex items-end justify-between gap-3">
                 <span class="text-[10px] uppercase tracking-[0.14em] text-zinc-500">{{ toolHost(tool.url) }}</span>
@@ -161,7 +162,7 @@ useSeoMeta({
                   rel="noopener noreferrer"
                   class="text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white"
                 >
-                  open &gt;
+                  {{ t('about.open') }}
                 </a>
               </div>
             </article>

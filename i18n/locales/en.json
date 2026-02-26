@@ -76,5 +76,54 @@
     "next": "Next",
     "toc": "Table of contents",
     "noHeadings": "No headings in this project page."
+  },
+  "about": {
+    "seo": {
+      "title": "About",
+      "description": "Freelance developer profile and technical stack.",
+      "ogTitle": "About | Briac"
+    },
+    "kicker": "Profile",
+    "title": "About",
+    "description": "Freelance developer focused on secure, production-ready web systems and practical tooling.",
+    "body1": "I am a freelance developer building secure and maintainable applications, with a strong focus on backend engineering, API design, and production reliability.",
+    "body2": "This stack evolves over time as I explore new solutions and adapt to changing needs. I stay curious and continuously test new technologies to improve my projects.",
+    "toolingKicker": "Tooling",
+    "toolingTitle": "Current Stack",
+    "toolLabel": "tool",
+    "open": "open >",
+    "sections": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Database",
+      "ide": "IDE",
+      "versionControl": "Version Control",
+      "infrastructure": "Infrastructure",
+      "dataAndFiles": "Data and Files"
+    },
+    "notes": {
+      "java": "Core language for backend systems.",
+      "springBoot": "Rapid development for production APIs.",
+      "swagger": "API documentation and contract-first workflows.",
+      "maven": "Build lifecycle and dependency management.",
+      "flyway": "Versioned SQL migrations in delivery pipelines.",
+      "pulse": "Low-overhead Java APM for diagnostics.",
+      "typescript": "Typed JavaScript for maintainable frontends.",
+      "vue": "Component-based UI architecture.",
+      "nuxt": "Full-stack Vue framework for SSR, SSG, and content sites.",
+      "nuxtUi": "Composable UI primitives aligned with Nuxt workflows.",
+      "tailwind": "Utility-first styling for fast and consistent interfaces.",
+      "shadcn": "Reusable component patterns and design conventions.",
+      "postgresql": "Primary relational database.",
+      "dbeaver": "Database management and query tooling.",
+      "drawdb": "Schema diagrams and SQL generation.",
+      "intellij": "Main IDE for Java and backend work.",
+      "vscode": "Lightweight editor for web and infra tasks.",
+      "git": "Versioning and collaboration baseline.",
+      "github": "Code hosting, review, and delivery workflows.",
+      "coolify": "Self-hosted deployment platform.",
+      "cloudpanel": "Server and hosting control panel.",
+      "jsonCrack": "Visualize JSON and complex object structures."
+    }
   }
 }
