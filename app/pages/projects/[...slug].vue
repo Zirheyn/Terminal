@@ -83,7 +83,18 @@ useSeoMeta({
           class="mb-4 h-[240px] w-full rounded-none border border-zinc-700 object-cover object-center sm:h-[300px] lg:h-[360px]"
           loading="lazy"
         >
-        <p class="text-xs uppercase tracking-wide text-zinc-400">{{ project.year }}</p>
+        <div class="flex items-center gap-2">
+          <p class="text-xs uppercase tracking-wide text-zinc-400">{{ project.year }}</p>
+          <span class="h-3.5 w-px bg-zinc-700" aria-hidden="true" />
+          <span
+            class="inline-flex items-center border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em]"
+            :class="project.active
+              ? 'border-white bg-white text-black'
+              : 'border-zinc-600 text-zinc-400'"
+          >
+            {{ project.active ? t('projects.statusActive') : t('projects.statusInactive') }}
+          </span>
+        </div>
         <div class="flex flex-wrap items-start justify-between gap-3">
           <h1 class="text-3xl font-bold leading-tight sm:text-4xl">{{ project.title }}</h1>
           <div v-if="stackIcons.length" class="flex items-center gap-2">

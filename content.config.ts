@@ -48,6 +48,7 @@ export default defineContentConfig({
         description: z.string(),
         tags: z.array(z.string()).default([]),
         year: z.number(),
+        active: z.boolean().default(false),
         cover: z.string().optional(),
         links: z
           .object({
@@ -66,6 +67,7 @@ export default defineContentConfig({
         description: z.string(),
         tags: z.array(z.string()).default([]),
         year: z.number(),
+        active: z.boolean().default(false),
         cover: z.string().optional(),
         links: z
           .object({

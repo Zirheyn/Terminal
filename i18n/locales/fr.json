@@ -64,7 +64,9 @@
     "all": "Tous",
     "visibleSingle": "{count} projet visible",
     "visiblePlural": "{count} projets visibles",
-    "empty": "Aucun projet ne correspond à cette recherche."
+    "empty": "Aucun projet ne correspond à cette recherche.",
+    "statusActive": "Actif",
+    "statusInactive": "Inactif"
   },
   "projectsDetail": {
     "back": "Retour aux projets",

@@ -3,6 +3,7 @@ title: Terminal
 description: Minimalist black-and-white portfolio and blog built with Nuxt 4, TypeScript, and Nuxt Content.
 tags: [nuxt, content, portfolio, blog]
 year: 2026
+active: true
 cover: /projects/terminal-portfolio.png
 links:
   repo: https://github.com/briacdev/terminal

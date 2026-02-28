@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n } from '#i18n'
+
 const props = defineProps<{
   project: {
     path: string
@@ -6,11 +8,13 @@ const props = defineProps<{
     description: string
     tags?: string[]
     year: number
+    active?: boolean
     cover?: string
   }
 }>()
 
 const visibleTags = computed(() => (props.project.tags || []).slice(0, 4))
+const { t } = useI18n()
 </script>
 
 <template>
@@ -24,7 +28,18 @@ const visibleTags = computed(() => (props.project.tags || []).slice(0, 4))
       >
     </NuxtLink>
 
-    <p class="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">{{ project.year }}</p>
+    <div class="mb-2 flex items-center gap-2">
+      <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">{{ project.year }}</p>
+      <span class="h-3 w-px bg-zinc-700" aria-hidden="true" />
+      <span
+        class="inline-flex items-center border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em]"
+        :class="project.active
+          ? 'border-white bg-white text-black'
+          : 'border-zinc-600 text-zinc-400'"
+      >
+        {{ project.active ? t('projects.statusActive') : t('projects.statusInactive') }}
+      </span>
+    </div>
 
     <h3 class="mb-2 text-lg font-bold uppercase leading-tight">
       <NuxtLink :to="project.path" class="no-underline">

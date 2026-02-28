@@ -4,6 +4,7 @@ export interface ProjectItem {
   description: string
   tags: string[]
   year: number
+  active: boolean
   cover?: string
   body?: {
     toc?: {

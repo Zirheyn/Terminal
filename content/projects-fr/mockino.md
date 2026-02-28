@@ -3,6 +3,7 @@ title: Mockino
 description: Créez rapidement des mockups soignés pour vos captures avec arrière-plans, thèmes navigateur et export instantané.
 tags: [saas, tooling, screenshots, design, productivity]
 year: 2025
+active: true
 cover: /projects/mockino.webp
 links:
   demo: https://mockino.com

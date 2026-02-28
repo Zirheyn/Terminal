@@ -3,6 +3,7 @@ title: Mockino
 description: Quickly create polished mockups for screenshots with backgrounds, browser themes, and instant export.
 tags: [saas, tooling, screenshots, design, productivity]
 year: 2025
+active: true
 cover: /projects/mockino.webp
 links:
   demo: https://mockino.com
