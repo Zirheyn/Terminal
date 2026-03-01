@@ -40,6 +40,25 @@ export default defineContentConfig({
       })
     }),
 
+    roadmapsFr: defineCollection({
+      type: 'page',
+      source: 'roadmaps-fr/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        date: z.union([z.string(), z.date()]).transform((value) => {
+          if (typeof value === 'string') {
+            return value
+          }
+          return value.toISOString().slice(0, 10)
+        }),
+        tags: z.array(z.string()).default([]),
+        draft: z.boolean().default(false),
+        cover: z.string().optional(),
+        readingTime: z.string().optional()
+      })
+    }),
+
     projects: defineCollection({
       type: 'page',
       source: 'projects/**/*.md',

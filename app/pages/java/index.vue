@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { useI18n, useLocalePath } from '#i18n'
+
 interface JavaRoadmapStep {
   id: number
   title: string
   phase: string
   side: 'left' | 'right'
   points: string[]
+  path?: string
 }
 
 const steps: JavaRoadmapStep[] = [
@@ -13,7 +16,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'Foundations',
     title: 'Install JDK and Tooling',
     side: 'left',
-    points: ['Install JDK 21+', 'Set JAVA_HOME/PATH', 'Use IntelliJ or VS Code']
+    points: ['Install JDK 21+', 'Set JAVA_HOME/PATH', 'Use IntelliJ or VS Code'],
+    path: '/java/install-jdk-and-tooling'
   },
   {
     id: 2,
@@ -220,6 +224,13 @@ const steps: JavaRoadmapStep[] = [
   }
 ]
 
+const localePath = useLocalePath()
+const { locale } = useI18n()
+const cta = computed(() => locale.value === 'fr'
+  ? { open: 'Ouvrir le tutoriel >', soon: 'Bientôt disponible' }
+  : { open: 'Open Tutorial >', soon: 'Coming soon' }
+)
+
 useSeoMeta({
   title: 'Java Roadmap',
   description: 'Visual Java learning roadmap from fundamentals to production-grade backend engineering.',
@@ -255,6 +266,16 @@ useSeoMeta({
           <ul class="node-list">
             <li v-for="point in step.points" :key="point">{{ point }}</li>
           </ul>
+          <NuxtLink
+            v-if="step.path"
+            :to="localePath(step.path)"
+            class="mt-3 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-300 no-underline hover:underline"
+          >
+            {{ cta.open }}
+          </NuxtLink>
+          <p v-else class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
+            {{ cta.soon }}
+          </p>
         </div>
       </article>
     </div>

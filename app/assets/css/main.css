@@ -478,6 +478,21 @@ button:hover,
   margin-bottom: 1rem;
 }
 
+.blog-prose h2:not(:first-of-type) {
+  position: relative;
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+}
+
+.blog-prose h2:not(:first-of-type)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #313131;
+}
+
 .blog-prose p,
 .blog-prose li {
   max-width: 72ch;
