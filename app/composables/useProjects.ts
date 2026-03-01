@@ -26,12 +26,20 @@ export const useProjects = async () => {
     .order('year', 'DESC')
     .all()
 
-  const projects: ProjectItem[] = rawProjects.map((project) => ({
-    ...project,
-    tags: project.tags ?? [],
-    stack: project.stack ?? [],
-    active: project.active ?? false
-  }))
+  const projects: ProjectItem[] = rawProjects.map((project) => {
+    const source = project as unknown as Record<string, unknown>
+    const stack = Array.isArray(source.stack)
+      ? source.stack.filter((item): item is string => typeof item === 'string')
+      : []
+    const active = typeof source.active === 'boolean' ? source.active : false
+
+    return {
+      ...project,
+      tags: project.tags ?? [],
+      stack,
+      active
+    }
+  })
 
   return projects
 }
