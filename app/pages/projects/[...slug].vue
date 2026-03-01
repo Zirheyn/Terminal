@@ -44,16 +44,23 @@ const stackIconMap: Record<string, { icon: string, color: string, label: string 
   typescript: { icon: 'i-simple-icons-typescript', color: '#3178C6', label: 'TypeScript' },
   content: { icon: 'i-simple-icons-markdown', color: '#FFFFFF', label: 'Content' },
   tailwind: { icon: 'i-simple-icons-tailwindcss', color: '#06B6D4', label: 'Tailwind CSS' },
-  vue: { icon: 'i-simple-icons-vuedotjs', color: '#42B883', label: 'Vue.js' }
+  vue: { icon: 'i-simple-icons-vuedotjs', color: '#42B883', label: 'Vue.js' },
+  springboot: { icon: 'i-simple-icons-springboot', color: '#6DB33F', label: 'Spring Boot' },
+  postgresql: { icon: 'i-simple-icons-postgresql', color: '#4169E1', label: 'PostgreSQL' },
+  ollama: { icon: 'i-lucide-bot', color: '#FFFFFF', label: 'Ollama' },
+  java: { icon: 'i-simple-icons-openjdk', color: '#EA2D2E', label: 'Java' }
 }
 
 const isStackIcon = (
   value: { icon: string, color: string, label: string } | undefined
 ): value is { icon: string, color: string, label: string } => Boolean(value)
 
+const normalizeStackKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '')
+
 const stackIcons = computed(() => {
-  return (project.tags || [])
-    .map((tag) => stackIconMap[tag.toLowerCase()])
+  const source = (project.stack?.length ? project.stack : project.tags) || []
+  return source
+    .map((item) => stackIconMap[normalizeStackKey(item)])
     .filter(isStackIcon)
     .slice(0, 6)
 })

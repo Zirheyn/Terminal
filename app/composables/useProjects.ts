@@ -3,6 +3,7 @@ export interface ProjectItem {
   title: string
   description: string
   tags: string[]
+  stack: string[]
   year: number
   active: boolean
   cover?: string
