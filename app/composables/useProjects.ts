@@ -22,9 +22,16 @@ export interface ProjectItem {
 }
 
 export const useProjects = async () => {
-  const projects = await queryCollection('projects')
+  const rawProjects = await queryCollection('projects')
     .order('year', 'DESC')
-    .all() as ProjectItem[]
+    .all()
+
+  const projects: ProjectItem[] = rawProjects.map((project) => ({
+    ...project,
+    tags: project.tags ?? [],
+    stack: project.stack ?? [],
+    active: project.active ?? false
+  }))
 
   return projects
 }
