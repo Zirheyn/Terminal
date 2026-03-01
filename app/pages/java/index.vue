@@ -14,209 +14,223 @@ const steps: JavaRoadmapStep[] = [
   {
     id: 1,
     phase: 'Foundations',
+    title: 'Java Origins, Versions and LTS',
+    side: 'right',
+    points: [
+      'History of Java and JVM ecosystem',
+      'Release cadence and versioning model',
+      'What LTS means and when to upgrade',
+      'Current Java language state',
+      'Where Java is used (software, backend, Android)'
+    ],
+    path: '/java/java-ecosystem-and-versioning-basics'
+  },
+  {
+    id: 2,
+    phase: 'Foundations',
     title: 'Install JDK and Tooling',
     side: 'left',
     points: ['Install JDK 21+', 'Set JAVA_HOME/PATH', 'Use IntelliJ or VS Code'],
     path: '/java/install-jdk-and-tooling'
   },
   {
-    id: 2,
+    id: 3,
     phase: 'Core Syntax',
     title: 'JVM, JDK, JRE Mental Model',
     side: 'right',
     points: ['How bytecode works', 'Class loading basics', 'Compilation vs runtime']
   },
   {
-    id: 3,
+    id: 4,
     phase: 'Language Basics',
     title: 'Variables, Types, Operators',
     side: 'left',
     points: ['Primitives vs wrappers', 'Type casting', 'Arithmetic and logical ops']
   },
   {
-    id: 4,
+    id: 5,
     phase: 'Language Basics',
     title: 'Control Flow',
     side: 'right',
     points: ['if/else, switch', 'for/while/do-while', 'break, continue, return']
   },
   {
-    id: 5,
+    id: 6,
     phase: 'Language Basics',
     title: 'Methods and Parameters',
     side: 'left',
     points: ['Method signatures', 'Pass-by-value behavior', 'Overloading']
   },
   {
-    id: 6,
+    id: 7,
     phase: 'OOP',
     title: 'Classes and Objects',
     side: 'right',
     points: ['Fields and constructors', 'Instance vs static members', 'Encapsulation']
   },
   {
-    id: 7,
+    id: 8,
     phase: 'OOP',
     title: 'Inheritance and Polymorphism',
     side: 'left',
     points: ['extends, super', 'Method overriding', 'Dynamic dispatch']
   },
   {
-    id: 8,
+    id: 9,
     phase: 'OOP',
     title: 'Interfaces and Abstract Classes',
     side: 'right',
     points: ['Contract-first design', 'Default/static methods', 'Composition over inheritance']
   },
   {
-    id: 9,
+    id: 10,
     phase: 'Error Handling',
     title: 'Exceptions',
     side: 'left',
     points: ['Checked vs unchecked', 'try/catch/finally', 'Custom exception types']
   },
   {
-    id: 10,
+    id: 11,
     phase: 'Core APIs',
     title: 'Strings and Date/Time',
     side: 'right',
     points: ['StringBuilder, immutability', 'java.time API', 'Formatting and parsing']
   },
   {
-    id: 11,
+    id: 12,
     phase: 'Core APIs',
     title: 'Collections Fundamentals',
     side: 'left',
     points: ['List, Set, Map', 'When to use each', 'Big-O basics']
   },
   {
-    id: 12,
+    id: 13,
     phase: 'Core APIs',
     title: 'Generics',
     side: 'right',
     points: ['Type parameters', 'Wildcards ? extends/super', 'Generic methods']
   },
   {
-    id: 13,
+    id: 14,
     phase: 'Core APIs',
     title: 'Enum, Record, Sealed Classes',
     side: 'left',
     points: ['Model finite states', 'Immutable DTOs with record', 'Restrict inheritance']
   },
   {
-    id: 14,
+    id: 15,
     phase: 'Functional Java',
     title: 'Lambdas and Functional Interfaces',
     side: 'right',
     points: ['Predicate, Function, Consumer', 'Method references', 'Higher-order style']
   },
   {
-    id: 15,
+    id: 16,
     phase: 'Functional Java',
     title: 'Streams',
     side: 'left',
     points: ['map/filter/reduce', 'Collectors', 'Avoid overusing streams']
   },
   {
-    id: 16,
+    id: 17,
     phase: 'Functional Java',
     title: 'Optional',
     side: 'right',
     points: ['Null-safe flow', 'map/flatMap/orElse', 'API boundaries best practices']
   },
   {
-    id: 17,
+    id: 18,
     phase: 'I/O',
     title: 'Files, Paths, NIO.2',
     side: 'left',
     points: ['Read/write files', 'Directory traversal', 'Buffered APIs']
   },
   {
-    id: 18,
+    id: 19,
     phase: 'Concurrency',
     title: 'Threads and Synchronization',
     side: 'right',
     points: ['Thread lifecycle', 'synchronized and locks', 'Race conditions']
   },
   {
-    id: 19,
+    id: 20,
     phase: 'Concurrency',
     title: 'ExecutorService',
     side: 'left',
     points: ['Thread pools', 'Callable/Future', 'Graceful shutdown']
   },
   {
-    id: 20,
+    id: 21,
     phase: 'Concurrency',
     title: 'CompletableFuture',
     side: 'right',
     points: ['Async pipelines', 'Error handling', 'Composing async tasks']
   },
   {
-    id: 21,
+    id: 22,
     phase: 'Build Tooling',
     title: 'Maven or Gradle',
     side: 'left',
     points: ['Dependency scopes', 'Plugins and lifecycle', 'Profiles']
   },
   {
-    id: 22,
+    id: 23,
     phase: 'Data',
     title: 'SQL Fundamentals',
     side: 'right',
     points: ['Joins and indexes', 'Transactions', 'Query optimization basics']
   },
   {
-    id: 23,
+    id: 24,
     phase: 'Data',
     title: 'JDBC',
     side: 'left',
     points: ['Connections and statements', 'Prepared statements', 'Mapping results']
   },
   {
-    id: 24,
+    id: 25,
     phase: 'Data',
     title: 'JPA/Hibernate',
     side: 'right',
     points: ['Entity mapping', 'Lazy vs eager loading', 'N+1 and transaction boundaries']
   },
   {
-    id: 25,
+    id: 26,
     phase: 'Backend',
     title: 'Spring Boot Essentials',
     side: 'left',
     points: ['Controllers and services', 'Configuration/profiles', 'Validation and error responses']
   },
   {
-    id: 26,
+    id: 27,
     phase: 'Security',
     title: 'Spring Security Basics',
     side: 'right',
     points: ['AuthN/AuthZ concepts', 'JWT/session approaches', 'Endpoint protection']
   },
   {
-    id: 27,
+    id: 28,
     phase: 'Testing',
     title: 'JUnit 5 + Mockito',
     side: 'left',
     points: ['Unit tests', 'Mocks and stubs', 'Test naming and structure']
   },
   {
-    id: 28,
+    id: 29,
     phase: 'Testing',
     title: 'Integration Tests',
     side: 'right',
     points: ['SpringBootTest', 'Testcontainers', 'Repository/API integration']
   },
   {
-    id: 29,
+    id: 30,
     phase: 'Delivery',
     title: 'Docker + CI/CD',
     side: 'left',
     points: ['Containerize app', 'Build pipelines', 'Deploy strategies']
   },
   {
-    id: 30,
+    id: 31,
     phase: 'Production',
     title: 'Observability and Performance',
     side: 'right',
