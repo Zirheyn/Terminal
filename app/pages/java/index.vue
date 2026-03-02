@@ -46,7 +46,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'Language Basics',
     title: 'Variables, Types, Operators',
     side: 'left',
-    points: ['Primitives vs wrappers', 'Type casting', 'Arithmetic and logical ops']
+    points: ['Primitives vs wrappers', 'Type casting', 'Arithmetic and logical ops'],
+    path: '/java/language-basics-variables-types-operators'
   },
   {
     id: 5,
