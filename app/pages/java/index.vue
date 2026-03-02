@@ -86,7 +86,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'OOP',
     title: 'Interfaces and Abstract Classes',
     side: 'right',
-    points: ['Contract-first design', 'Default/static methods', 'Composition over inheritance']
+    points: ['Contract-first design', 'Default/static methods', 'Composition over inheritance'],
+    path: '/java/oop-interfaces-and-abstract-classes'
   },
   {
     id: 10,
