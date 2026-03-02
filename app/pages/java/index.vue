@@ -78,7 +78,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'OOP',
     title: 'Inheritance and Polymorphism',
     side: 'left',
-    points: ['extends, super', 'Method overriding', 'Dynamic dispatch']
+    points: ['extends, super', 'Method overriding', 'Dynamic dispatch'],
+    path: '/java/oop-inheritance-and-polymorphism'
   },
   {
     id: 9,
