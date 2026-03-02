@@ -62,7 +62,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'Language Basics',
     title: 'Methods and Parameters',
     side: 'left',
-    points: ['Method signatures', 'Pass-by-value behavior', 'Overloading']
+    points: ['Method signatures', 'Pass-by-value behavior', 'Overloading'],
+    path: '/java/language-basics-methods-and-parameters'
   },
   {
     id: 7,
