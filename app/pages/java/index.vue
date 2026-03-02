@@ -70,7 +70,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'OOP',
     title: 'Classes and Objects',
     side: 'right',
-    points: ['Fields and constructors', 'Instance vs static members', 'Encapsulation']
+    points: ['Fields and constructors', 'Instance vs static members', 'Encapsulation'],
+    path: '/java/oop-classes-and-objects'
   },
   {
     id: 8,
