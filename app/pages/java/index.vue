@@ -54,7 +54,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'Language Basics',
     title: 'Control Flow',
     side: 'right',
-    points: ['if/else, switch', 'for/while/do-while', 'break, continue, return']
+    points: ['if/else, switch', 'for/while/do-while', 'break, continue, return'],
+    path: '/java/language-basics-control-flow'
   },
   {
     id: 6,
