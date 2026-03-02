@@ -66,7 +66,7 @@ Java est présent dans de nombreux domaines :
 Pour la plupart des équipes et freelances :
 
 1. Démarrer les nouveaux projets en **JDK 21 (LTS)**
-2. Garder dev, CI et production sur la même version majeure
+2. Garder local, test et production sur la même version majeure
 3. Migrer entre bases LTS de manière contrôlée
 4. Vérifier la compatibilité des frameworks avant migration majeure
 

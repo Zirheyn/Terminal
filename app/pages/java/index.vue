@@ -38,7 +38,8 @@ const steps: JavaRoadmapStep[] = [
     phase: 'Core Syntax',
     title: 'JVM, JDK, JRE Mental Model',
     side: 'right',
-    points: ['How bytecode works', 'Class loading basics', 'Compilation vs runtime']
+    points: ['How bytecode works', 'Class loading basics', 'Compilation vs runtime'],
+    path: '/java/core-syntax-jvm-jdk-jre-mental-model'
   },
   {
     id: 4,

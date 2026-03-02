@@ -9,7 +9,7 @@ readingTime: 4 min
 
 ## Pourquoi cette étape est importante
 
-Avant d'écrire du Java, ton environnement doit être propre et reproductible. Une configuration saine évite les erreurs cachées entre l'environnement local, le CI et la production.
+Avant d'écrire du Java, ton environnement doit être propre et reproductible. Une configuration saine évite les erreurs cachées entre les environnements local, test et production.
 
 ## Installer un JDK 21+
 

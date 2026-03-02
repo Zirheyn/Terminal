@@ -66,7 +66,7 @@ Java is widely used across many domains:
 For most teams and freelancers:
 
 1. Start new production projects on **JDK 21 (LTS)**
-2. Keep dev, CI, and production on the same major version
+2. Keep local, staging, and production on the same major version
 3. Upgrade in a controlled way between LTS baselines
 4. Track framework compatibility before major upgrades
 

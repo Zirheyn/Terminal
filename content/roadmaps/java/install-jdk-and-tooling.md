@@ -9,7 +9,7 @@ readingTime: 4 min
 
 ## Why this step matters
 
-Before writing Java code, your environment must be correct and reproducible. A clean setup avoids hidden issues in build pipelines, CI, and local development.
+Before writing Java code, your environment must be correct and reproducible. A clean setup avoids hidden issues between local, staging, and production environments.
 
 ## Install JDK 21+
 
