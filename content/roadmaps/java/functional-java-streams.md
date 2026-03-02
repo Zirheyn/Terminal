@@ -1,0 +1,93 @@
+---
+title: Functional Java - Streams
+description: Learn Java Streams with map, filter, reduce, collectors, and practical rules to avoid overusing streams.
+date: 2025-01-04
+tags: [java, functional, streams, collections]
+draft: false
+readingTime: 14 min
+---
+
+## Why this step matters
+
+Streams let you express data transformations clearly, especially for filtering, aggregation, and reporting logic.
+Used well, they reduce boilerplate. Used badly, they hurt readability.
+
+## Stream pipeline mental model
+
+A stream pipeline has three parts:
+
+1. Source (`List`, `Set`, array, etc.)
+2. Intermediate operations (`filter`, `map`, `sorted`)
+3. Terminal operation (`collect`, `forEach`, `count`, `reduce`)
+
+```java
+List<String> names = List.of("alice", "bob", "anna");
+
+List<String> result = names.stream()
+    .filter(n -> n.startsWith("a"))
+    .map(String::toUpperCase)
+    .toList();
+
+System.out.println(result); // [ALICE, ANNA]
+```
+
+## `map`, `filter`, `reduce`
+
+- `filter`: keep matching elements
+- `map`: transform each element
+- `reduce`: combine elements into one result
+
+```java
+int total = List.of(10, 20, 30).stream()
+    .filter(n -> n >= 20)
+    .reduce(0, Integer::sum);
+
+System.out.println(total); // 50
+```
+
+## Collectors
+
+Collectors are used at the end of a pipeline to shape results.
+
+```java
+Map<String, Long> countByRole = List.of("admin", "user", "admin").stream()
+    .collect(Collectors.groupingBy(r -> r, Collectors.counting()));
+
+System.out.println(countByRole); // {admin=2, user=1}
+```
+
+Useful collectors:
+
+- `toList()` / `toSet()`
+- `groupingBy(...)`
+- `partitioningBy(...)`
+- `joining(...)`
+- `counting()`, `summingInt(...)`
+
+## Avoid overusing streams
+
+Streams are not always the best choice.
+Prefer loops when:
+
+- logic is highly stateful
+- multiple side effects are needed
+- debugging a long chain is harder than reading a simple loop
+
+## Common mistakes
+
+- side effects inside `map`/`filter`
+- creating very long chains with unclear intent
+- using streams in hot loops without measuring impact
+- assuming parallel streams always improve performance
+
+## Practical rule
+
+Use streams for declarative data transformations.
+Use loops for complex control flow and mutable workflows.
+
+## Takeaway
+
+1. Think in pipeline steps: source -> transform -> terminal
+2. Master `map`, `filter`, `reduce`, `collect`
+3. Keep stream code short and readable
+4. Do not force streams when a loop is clearer

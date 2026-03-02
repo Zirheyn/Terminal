@@ -10,7 +10,13 @@ interface JavaRoadmapStep {
   path?: string
 }
 
-const steps: JavaRoadmapStep[] = [
+interface JavaRoadmapStepTranslation {
+  title: string
+  phase: string
+  points: string[]
+}
+
+const stepsEn: JavaRoadmapStep[] = [
   {
     id: 1,
     phase: 'Foundations',
@@ -94,179 +100,390 @@ const steps: JavaRoadmapStep[] = [
     phase: 'Error Handling',
     title: 'Exceptions',
     side: 'left',
-    points: ['Checked vs unchecked', 'try/catch/finally', 'Custom exception types']
+    points: ['Checked vs unchecked', 'try/catch/finally', 'Custom exception types'],
+    path: '/java/error-handling-exceptions'
   },
   {
     id: 11,
     phase: 'Core APIs',
     title: 'Strings and Date/Time',
     side: 'right',
-    points: ['StringBuilder, immutability', 'java.time API', 'Formatting and parsing']
+    points: ['StringBuilder, immutability', 'java.time API', 'Formatting and parsing'],
+    path: '/java/core-apis-strings-and-datetime'
   },
   {
     id: 12,
     phase: 'Core APIs',
     title: 'Collections Fundamentals',
     side: 'left',
-    points: ['List, Set, Map', 'When to use each', 'Big-O basics']
+    points: ['List, Set, Map', 'When to use each', 'Big-O basics'],
+    path: '/java/core-apis-collections-fundamentals'
   },
   {
     id: 13,
     phase: 'Core APIs',
     title: 'Generics',
     side: 'right',
-    points: ['Type parameters', 'Wildcards ? extends/super', 'Generic methods']
+    points: ['Type parameters', 'Wildcards ? extends/super', 'Generic methods'],
+    path: '/java/core-apis-generics'
   },
   {
     id: 14,
     phase: 'Core APIs',
     title: 'Enum, Record, Sealed Classes',
     side: 'left',
-    points: ['Model finite states', 'Immutable DTOs with record', 'Restrict inheritance']
+    points: ['Model finite states', 'Immutable DTOs with record', 'Restrict inheritance'],
+    path: '/java/core-apis-enum-record-sealed-classes'
   },
   {
     id: 15,
     phase: 'Functional Java',
     title: 'Lambdas and Functional Interfaces',
     side: 'right',
-    points: ['Predicate, Function, Consumer', 'Method references', 'Higher-order style']
+    points: ['Predicate, Function, Consumer', 'Method references', 'Higher-order style'],
+    path: '/java/functional-java-lambdas-and-functional-interfaces'
   },
   {
     id: 16,
     phase: 'Functional Java',
     title: 'Streams',
     side: 'left',
-    points: ['map/filter/reduce', 'Collectors', 'Avoid overusing streams']
+    points: ['map/filter/reduce', 'Collectors', 'Avoid overusing streams'],
+    path: '/java/functional-java-streams'
   },
   {
     id: 17,
     phase: 'Functional Java',
     title: 'Optional',
     side: 'right',
-    points: ['Null-safe flow', 'map/flatMap/orElse', 'API boundaries best practices']
+    points: ['Null-safe flow', 'map/flatMap/orElse', 'API boundaries best practices'],
+    path: '/java/functional-java-optional'
   },
   {
     id: 18,
     phase: 'I/O',
     title: 'Files, Paths, NIO.2',
     side: 'left',
-    points: ['Read/write files', 'Directory traversal', 'Buffered APIs']
+    points: ['Read/write files', 'Directory traversal', 'Buffered APIs'],
+    path: '/java/io-files-paths-nio2'
   },
   {
     id: 19,
     phase: 'Concurrency',
     title: 'Threads and Synchronization',
     side: 'right',
-    points: ['Thread lifecycle', 'synchronized and locks', 'Race conditions']
+    points: ['Thread lifecycle', 'synchronized and locks', 'Race conditions'],
+    path: '/java/concurrency-threads-and-synchronization'
   },
   {
     id: 20,
     phase: 'Concurrency',
     title: 'ExecutorService',
     side: 'left',
-    points: ['Thread pools', 'Callable/Future', 'Graceful shutdown']
+    points: ['Thread pools', 'Callable/Future', 'Graceful shutdown'],
+    path: '/java/concurrency-executorservice'
   },
   {
     id: 21,
     phase: 'Concurrency',
     title: 'CompletableFuture',
     side: 'right',
-    points: ['Async pipelines', 'Error handling', 'Composing async tasks']
+    points: ['Async pipelines', 'Error handling', 'Composing async tasks'],
+    path: '/java/concurrency-completablefuture'
   },
   {
     id: 22,
     phase: 'Build Tooling',
     title: 'Maven or Gradle',
     side: 'left',
-    points: ['Dependency scopes', 'Plugins and lifecycle', 'Profiles']
+    points: ['Dependency scopes', 'Plugins and lifecycle', 'Profiles'],
+    path: '/java/build-tooling-maven-or-gradle'
   },
   {
     id: 23,
     phase: 'Data',
     title: 'SQL Fundamentals',
     side: 'right',
-    points: ['Joins and indexes', 'Transactions', 'Query optimization basics']
+    points: ['Joins and indexes', 'Transactions', 'Query optimization basics'],
+    path: '/java/data-sql-fundamentals'
   },
   {
     id: 24,
     phase: 'Data',
     title: 'JDBC',
     side: 'left',
-    points: ['Connections and statements', 'Prepared statements', 'Mapping results']
+    points: ['Connections and statements', 'Prepared statements', 'Mapping results'],
+    path: '/java/data-jdbc'
   },
   {
     id: 25,
     phase: 'Data',
     title: 'JPA/Hibernate',
     side: 'right',
-    points: ['Entity mapping', 'Lazy vs eager loading', 'N+1 and transaction boundaries']
+    points: ['Entity mapping', 'Lazy vs eager loading', 'N+1 and transaction boundaries'],
+    path: '/java/data-jpa-hibernate'
   },
   {
     id: 26,
     phase: 'Backend',
-    title: 'Spring Boot Essentials',
+    title: 'Backend API Essentials',
     side: 'left',
-    points: ['Controllers and services', 'Configuration/profiles', 'Validation and error responses']
+    points: ['Layered architecture', 'Configuration and validation', 'Error handling contracts'],
+    path: '/java/backend-api-essentials'
   },
   {
     id: 27,
     phase: 'Security',
-    title: 'Spring Security Basics',
+    title: 'Application Security Basics',
     side: 'right',
-    points: ['AuthN/AuthZ concepts', 'JWT/session approaches', 'Endpoint protection']
+    points: ['AuthN/AuthZ concepts', 'Token/session approaches', 'Endpoint hardening'],
+    path: '/java/security-application-security-basics'
   },
   {
     id: 28,
     phase: 'Testing',
     title: 'JUnit 5 + Mockito',
     side: 'left',
-    points: ['Unit tests', 'Mocks and stubs', 'Test naming and structure']
+    points: ['Unit tests', 'Mocks and stubs', 'Test naming and structure'],
+    path: '/java/testing-junit5-mockito'
   },
   {
     id: 29,
-    phase: 'Testing',
-    title: 'Integration Tests',
+    phase: 'Delivery',
+    title: 'Docker + CI/CD',
     side: 'right',
-    points: ['SpringBootTest', 'Testcontainers', 'Repository/API integration']
+    points: ['Containerize app', 'Build pipelines', 'Deploy strategies'],
+    path: '/java/delivery-docker-cicd'
   },
   {
     id: 30,
-    phase: 'Delivery',
-    title: 'Docker + CI/CD',
-    side: 'left',
-    points: ['Containerize app', 'Build pipelines', 'Deploy strategies']
-  },
-  {
-    id: 31,
     phase: 'Production',
     title: 'Observability and Performance',
-    side: 'right',
-    points: ['Structured logs', 'Metrics and tracing', 'Profiling and tuning']
+    side: 'left',
+    points: ['Structured logs', 'Metrics and tracing', 'Profiling and tuning'],
+    path: '/java/production-observability-and-performance'
   }
 ]
 
 const localePath = useLocalePath()
 const { locale } = useI18n()
-const cta = computed(() => locale.value === 'fr'
-  ? { open: 'Ouvrir le tutoriel >', soon: 'Bientôt disponible' }
-  : { open: 'Open Tutorial >', soon: 'Coming soon' }
+
+const frStepTextById: Record<number, JavaRoadmapStepTranslation> = {
+  1: {
+    phase: 'Fondations',
+    title: 'Origines de Java, versions et LTS',
+    points: [
+      'Histoire de Java et ecosysteme JVM',
+      'Cadence des releases et modele de versioning',
+      'Ce que signifie LTS et quand migrer',
+      'Etat actuel du langage Java',
+      'Ou Java est utilise (logiciels, backend, Android)'
+    ]
+  },
+  2: {
+    phase: 'Fondations',
+    title: 'Installer le JDK et l outillage',
+    points: ['Installer JDK 21+', 'Configurer JAVA_HOME/PATH', 'Utiliser IntelliJ ou VS Code']
+  },
+  3: {
+    phase: 'Syntaxe coeur',
+    title: 'Modele mental JVM, JDK, JRE',
+    points: ['Fonctionnement du bytecode', 'Bases du class loading', 'Compilation vs execution']
+  },
+  4: {
+    phase: 'Bases du langage',
+    title: 'Variables, types, operateurs',
+    points: ['Primitifs vs wrappers', 'Cast de types', 'Operateurs arithmetiques et logiques']
+  },
+  5: {
+    phase: 'Bases du langage',
+    title: 'Controle de flux',
+    points: ['if/else, switch', 'for/while/do-while', 'break, continue, return']
+  },
+  6: {
+    phase: 'Bases du langage',
+    title: 'Methodes et parametres',
+    points: ['Signatures de methodes', 'Semantique pass-by-value', 'Surcharge (overloading)']
+  },
+  7: {
+    phase: 'POO',
+    title: 'Classes et objets',
+    points: ['Champs et constructeurs', 'Membres instance vs static', 'Encapsulation']
+  },
+  8: {
+    phase: 'POO',
+    title: 'Heritage et polymorphisme',
+    points: ['extends, super', 'Redefinition de methodes', 'Dispatch dynamique']
+  },
+  9: {
+    phase: 'POO',
+    title: 'Interfaces et classes abstraites',
+    points: ['Design contract-first', 'Methodes default/static', 'Composition plutot que heritage']
+  },
+  10: {
+    phase: 'Gestion des erreurs',
+    title: 'Exceptions',
+    points: ['Checked vs unchecked', 'try/catch/finally', 'Types d exceptions personnalisees']
+  },
+  11: {
+    phase: 'APIs coeur',
+    title: 'Strings et Date/Time',
+    points: ['StringBuilder, immutabilite', 'API java.time', 'Formatage et parsing']
+  },
+  12: {
+    phase: 'APIs coeur',
+    title: 'Fondamentaux des collections',
+    points: ['List, Set, Map', 'Quand utiliser chaque structure', 'Bases de complexite Big-O']
+  },
+  13: {
+    phase: 'APIs coeur',
+    title: 'Generiques',
+    points: ['Parametres de type', 'Wildcards ? extends/super', 'Methodes generiques']
+  },
+  14: {
+    phase: 'APIs coeur',
+    title: 'Enum, Record, Sealed Classes',
+    points: ['Modeliser des etats finis', 'DTO immuables avec record', 'Restreindre l heritage']
+  },
+  15: {
+    phase: 'Java fonctionnel',
+    title: 'Lambdas et interfaces fonctionnelles',
+    points: ['Predicate, Function, Consumer', 'References de methodes', 'Style higher-order']
+  },
+  16: {
+    phase: 'Java fonctionnel',
+    title: 'Streams',
+    points: ['map/filter/reduce', 'Collectors', 'Eviter la sur-utilisation des streams']
+  },
+  17: {
+    phase: 'Java fonctionnel',
+    title: 'Optional',
+    points: ['Flux null-safe', 'map/flatMap/orElse', 'Bonnes pratiques aux frontieres d API']
+  },
+  18: {
+    phase: 'I/O',
+    title: 'Fichiers, Paths, NIO.2',
+    points: ['Lire/ecrire des fichiers', 'Parcours de repertoires', 'APIs bufferisees']
+  },
+  19: {
+    phase: 'Concurrence',
+    title: 'Threads et synchronisation',
+    points: ['Cycle de vie des threads', 'synchronized et locks', 'Race conditions']
+  },
+  20: {
+    phase: 'Concurrence',
+    title: 'ExecutorService',
+    points: ['Pools de threads', 'Callable/Future', 'Graceful shutdown']
+  },
+  21: {
+    phase: 'Concurrence',
+    title: 'CompletableFuture',
+    points: ['Pipelines asynchrones', 'Gestion des erreurs', 'Composition de taches async']
+  },
+  22: {
+    phase: 'Outils de build',
+    title: 'Maven ou Gradle',
+    points: ['Scopes de dependances', 'Plugins et cycle de vie', 'Profils']
+  },
+  23: {
+    phase: 'Donnees',
+    title: 'Fondamentaux SQL',
+    points: ['Joins et index', 'Transactions', 'Bases d optimisation de requetes']
+  },
+  24: {
+    phase: 'Donnees',
+    title: 'JDBC',
+    points: ['Connexions et statements', 'Prepared statements', 'Mapping des resultats']
+  },
+  25: {
+    phase: 'Donnees',
+    title: 'JPA/Hibernate',
+    points: ['Mapping d entites', 'Lazy vs eager loading', 'N+1 et frontieres transactionnelles']
+  },
+  26: {
+    phase: 'Backend',
+    title: 'Essentials API backend',
+    points: ['Architecture en couches', 'Configuration et validation', 'Contrats de gestion d erreurs']
+  },
+  27: {
+    phase: 'Securite',
+    title: 'Bases de la securite applicative',
+    points: ['Concepts AuthN/AuthZ', 'Approches token/session', 'Durcissement des endpoints']
+  },
+  28: {
+    phase: 'Tests',
+    title: 'JUnit 5 + Mockito',
+    points: ['Tests unitaires', 'Mocks et stubs', 'Nommage et structure des tests']
+  },
+  29: {
+    phase: 'Delivery',
+    title: 'Docker + CI/CD',
+    points: ['Containeriser l application', 'Pipelines de build', 'Strategies de deploiement']
+  },
+  30: {
+    phase: 'Production',
+    title: 'Observabilite et performance',
+    points: ['Logs structures', 'Metriques et tracing', 'Profiling et tuning']
+  }
+}
+
+const steps = computed<JavaRoadmapStep[]>(() => {
+  if (locale.value !== 'fr') {
+    return stepsEn
+  }
+
+  return stepsEn.map((step) => {
+    const translation = frStepTextById[step.id]
+    if (!translation) {
+      return step
+    }
+    return {
+      ...step,
+      title: translation.title,
+      phase: translation.phase,
+      points: translation.points
+    }
+  })
+})
+
+const pageUi = computed(() => locale.value === 'fr'
+  ? {
+      kicker: 'Parcours d apprentissage',
+      title: 'Roadmap Java de A a Z',
+      description: 'Un parcours pratique pour passer des fondamentaux Java a la conception, au test et a la livraison de systemes backend.',
+      open: 'Ouvrir le tutoriel >',
+      soon: 'Bientot disponible',
+      seoTitle: 'Roadmap Java | Briac',
+      seoDescription: 'Roadmap visuelle pour apprendre Java, des bases jusqu a la production backend.',
+      seoOgTitle: 'Roadmap Java | Briac // Terminal Portfolio'
+    }
+  : {
+      kicker: 'Learning Path',
+      title: 'Java Roadmap A to Z',
+      description: 'A practical path to go from Java fundamentals to building, testing, and shipping real backend systems.',
+      open: 'Open Tutorial >',
+      soon: 'Coming soon',
+      seoTitle: 'Java Roadmap | Briac',
+      seoDescription: 'Visual Java learning roadmap from fundamentals to production-grade backend engineering.',
+      seoOgTitle: 'Java Roadmap | Briac // Terminal Portfolio'
+    }
 )
 
 useSeoMeta({
-  title: 'Java Roadmap',
-  description: 'Visual Java learning roadmap from fundamentals to production-grade backend engineering.',
-  ogTitle: 'Java Roadmap | Briac // Terminal Portfolio',
-  ogDescription: 'Visual Java learning roadmap from fundamentals to production-grade backend engineering.'
+  title: () => pageUi.value.seoTitle,
+  description: () => pageUi.value.seoDescription,
+  ogTitle: () => pageUi.value.seoOgTitle,
+  ogDescription: () => pageUi.value.seoDescription
 })
 </script>
 
 <template>
   <section class="java-roadmap space-y-8">
     <header class="space-y-3 border border-zinc-700 bg-zinc-950 p-5 sm:p-7">
-      <p class="section-kicker">Learning Path</p>
-      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">Java Roadmap A to Z</h1>
+      <p class="section-kicker">{{ pageUi.kicker }}</p>
+      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">{{ pageUi.title }}</h1>
       <p class="max-w-3xl text-zinc-300">
-        A practical path to go from Java fundamentals to building, testing, and shipping real backend systems.
+        {{ pageUi.description }}
       </p>
     </header>
 
@@ -292,10 +509,10 @@ useSeoMeta({
             :to="localePath(step.path)"
             class="mt-3 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-300 no-underline hover:underline"
           >
-            {{ cta.open }}
+            {{ pageUi.open }}
           </NuxtLink>
           <p v-else class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
-            {{ cta.soon }}
+            {{ pageUi.soon }}
           </p>
         </div>
       </article>

@@ -493,6 +493,23 @@ button:hover,
   border-top: 1px solid #313131;
 }
 
+.blog-prose hr,
+.prose hr {
+  border: 0;
+  border-top: 1px solid #313131;
+  margin: 2rem 0;
+  height: 0;
+}
+
+.blog-prose hr + h2:not(:first-of-type) {
+  margin-top: 2.2rem;
+  padding-top: 0;
+}
+
+.blog-prose hr + h2:not(:first-of-type)::before {
+  content: none;
+}
+
 .blog-prose p,
 .blog-prose li {
   max-width: 72ch;
