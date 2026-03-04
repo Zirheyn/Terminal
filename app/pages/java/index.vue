@@ -448,7 +448,7 @@ const steps = computed<JavaRoadmapStep[]>(() => {
 
 const pageUi = computed(() => locale.value === 'fr'
   ? {
-      kicker: 'Parcours d apprentissage',
+      kicker: "Parcours d'apprentissage",
       title: 'Roadmap Java de A a Z',
       description: 'Un parcours pratique pour passer des fondamentaux Java a la conception, au test et a la livraison de systemes backend.',
       open: 'Ouvrir le tutoriel >',
