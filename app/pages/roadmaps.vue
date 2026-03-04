@@ -16,6 +16,13 @@ const roadmaps: RoadmapItem[] = [
     cover: '/roadmaps/java-roadmap.webp'
   },
   {
+    path: '/spring-boot',
+    title: 'Spring Boot Roadmap',
+    description: 'A complete path from Spring Boot fundamentals to secure, testable, production-grade APIs.',
+    tags: ['roadmap', 'spring-boot', 'backend'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: '/seo',
     title: 'SEO Roadmap',
     description: 'A structured path from SEO basics to technical implementation and long-term growth.',
@@ -49,9 +56,9 @@ const filteredRoadmaps = computed(() => {
 
 useSeoMeta({
   title: 'Roadmaps',
-  description: 'Learning roadmaps for Java and SEO with visual progression and practical resources.',
+  description: 'Learning roadmaps for Java, Spring Boot, and SEO with visual progression and practical resources.',
   ogTitle: 'Roadmaps | Briac',
-  ogDescription: 'Learning roadmaps for Java and SEO with visual progression and practical resources.'
+  ogDescription: 'Learning roadmaps for Java, Spring Boot, and SEO with visual progression and practical resources.'
 })
 </script>
 

@@ -19,6 +19,15 @@ const featuredRoadmaps = computed(() => [
     cover: '/roadmaps/java-roadmap.webp'
   },
   {
+    path: localePath('/spring-boot'),
+    title: 'Spring Boot Roadmap',
+    description: locale.value === 'fr'
+      ? 'Parcours complet de Spring Boot: architecture API, securite, tests et production.'
+      : 'Complete Spring Boot learning path covering API architecture, security, testing, and production.',
+    tags: ['roadmap', 'spring-boot'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: localePath('/seo'),
     title: 'SEO Roadmap',
     description: locale.value === 'fr'
