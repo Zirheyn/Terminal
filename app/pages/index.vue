@@ -28,6 +28,15 @@ const featuredRoadmaps = computed(() => [
     cover: '/banner-test.jpg'
   },
   {
+    path: localePath('/postgresql'),
+    title: 'PostgreSQL Roadmap',
+    description: locale.value === 'fr'
+      ? 'Parcours progressif de PostgreSQL: modelisation, requetes, performance et operations en production.'
+      : 'Progressive PostgreSQL path covering modeling, querying, performance, and production operations.',
+    tags: ['roadmap', 'postgresql'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: localePath('/seo'),
     title: 'SEO Roadmap',
     description: locale.value === 'fr'
