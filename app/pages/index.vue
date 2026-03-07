@@ -46,6 +46,15 @@ const featuredRoadmaps = computed(() => [
     cover: '/banner-test.jpg'
   },
   {
+    path: localePath('/nuxt'),
+    title: 'Nuxt Roadmap',
+    description: locale.value === 'fr'
+      ? 'Parcours Nuxt progressif: rendu, routing, contenu, logique serveur et applications frontend en production.'
+      : 'Progressive Nuxt path covering rendering, routing, content, server logic, and production-ready frontend applications.',
+    tags: ['roadmap', 'nuxt'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: localePath('/seo'),
     title: 'SEO Roadmap',
     description: locale.value === 'fr'
