@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useLocalePath } from '#i18n'
+
 interface RoadmapItem {
   path: string
   title: string
@@ -30,6 +32,13 @@ const roadmaps: RoadmapItem[] = [
     cover: '/banner-test.jpg'
   },
   {
+    path: '/vue-js',
+    title: 'Vue.js Roadmap',
+    description: 'A practical path from Vue fundamentals to modern, production-ready frontend architecture.',
+    tags: ['roadmap', 'vue', 'frontend'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: '/seo',
     title: 'SEO Roadmap',
     description: 'A structured path from SEO basics to technical implementation and long-term growth.',
@@ -40,6 +49,7 @@ const roadmaps: RoadmapItem[] = [
 
 const search = ref('')
 const activeTag = ref<string | null>(null)
+const localePath = useLocalePath()
 
 const allTags = computed(() => {
   return Array.from(new Set(roadmaps.flatMap((item) => item.tags))).sort((a, b) => a.localeCompare(b))
@@ -63,9 +73,9 @@ const filteredRoadmaps = computed(() => {
 
 useSeoMeta({
   title: 'Roadmaps',
-  description: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, and SEO with visual progression and practical resources.',
+  description: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, Vue.js, and SEO with visual progression and practical resources.',
   ogTitle: 'Roadmaps | Briac',
-  ogDescription: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, and SEO with visual progression and practical resources.'
+  ogDescription: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, Vue.js, and SEO with visual progression and practical resources.'
 })
 </script>
 
@@ -108,7 +118,7 @@ useSeoMeta({
 
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       <article v-for="item in filteredRoadmaps" :key="item.path" class="brutal-card group flex h-full flex-col p-5">
-        <NuxtLink :to="item.path" class="mb-3 block no-underline">
+        <NuxtLink :to="localePath(item.path)" class="mb-3 block no-underline">
           <img
             :src="item.cover || '/banner-test.jpg'"
             :alt="`${item.title} cover`"
@@ -119,7 +129,7 @@ useSeoMeta({
         <p class="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">roadmap</p>
 
         <h2 class="mb-2 text-xl font-bold uppercase leading-tight">
-          <NuxtLink :to="item.path" class="no-underline">
+          <NuxtLink :to="localePath(item.path)" class="no-underline">
             {{ item.title }}
           </NuxtLink>
         </h2>
@@ -130,7 +140,7 @@ useSeoMeta({
             <div class="flex flex-wrap gap-2">
               <TagPill v-for="tag in item.tags.slice(0, 4)" :key="tag" :label="tag" />
             </div>
-          <NuxtLink :to="item.path" class="card-open-link text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
+          <NuxtLink :to="localePath(item.path)" class="card-open-link text-xs font-bold uppercase tracking-[0.15em] text-zinc-500 no-underline transition group-hover:text-white">
             open &gt;
           </NuxtLink>
         </div>

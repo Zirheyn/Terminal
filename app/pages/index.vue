@@ -37,6 +37,15 @@ const featuredRoadmaps = computed(() => [
     cover: '/banner-test.jpg'
   },
   {
+    path: localePath('/vue-js'),
+    title: 'Vue.js Roadmap',
+    description: locale.value === 'fr'
+      ? 'Parcours Vue.js progressif: reactivite, composants, routing, state management et frontend de production.'
+      : 'Progressive Vue.js path covering reactivity, components, routing, state management, and production frontend architecture.',
+    tags: ['roadmap', 'vue'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: localePath('/seo'),
     title: 'SEO Roadmap',
     description: locale.value === 'fr'
