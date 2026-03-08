@@ -8,7 +8,7 @@ const localePath = useLocalePath()
 
 const latestPosts = computed(() => posts.slice(0, 3))
 const featuredProjects = computed(() => projects.slice(0, 3))
-const featuredRoadmaps = computed(() => [
+const featuredRoadmaps = computed(() => ([
   {
     path: localePath('/java'),
     title: 'Java Roadmap',
@@ -63,7 +63,7 @@ const featuredRoadmaps = computed(() => [
     tags: ['roadmap', 'seo'],
     cover: '/roadmaps/seo-roadmap.webp'
   }
-])
+]).slice(0, 3))
 
 interface GithubStats {
   metrics: {
