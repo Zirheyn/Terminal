@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from '#i18n'
+import { useI18n, useLocalePath } from '#i18n'
 
 interface SpringBootRoadmapStep {
   id: number
@@ -311,6 +311,7 @@ const stepsFr: SpringBootRoadmapStep[] = [
 ]
 
 const { locale } = useI18n()
+const localePath = useLocalePath()
 
 const pageUi = computed(() => locale.value === 'fr'
   ? {
@@ -335,7 +336,20 @@ const pageUi = computed(() => locale.value === 'fr'
     }
 )
 
-const steps = computed(() => locale.value === 'fr' ? stepsFr : stepsEn)
+const steps = computed(() => {
+  const currentSteps = locale.value === 'fr' ? stepsFr : stepsEn
+
+  return currentSteps.map((step) => {
+    if (step.id === 1) {
+      return {
+        ...step,
+        path: localePath('/spring-boot/spring-boot-fundamentals')
+      }
+    }
+
+    return step
+  })
+})
 
 useSeoMeta({
   title: () => pageUi.value.seoTitle,
