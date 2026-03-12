@@ -23,7 +23,7 @@ const { t } = useI18n()
       <img
         :src="project.cover || '/banner-test.jpg'"
         :alt="`${project.title} banner`"
-        class="h-24 w-full border border-zinc-700 object-cover"
+        class="h-24 w-full border border-zinc-700 object-cover object-top"
         loading="lazy"
       >
     </NuxtLink>

@@ -87,7 +87,7 @@ useSeoMeta({
         <img
           :src="coverUrl"
           :alt="`${project.title} cover image`"
-          class="mb-4 h-[240px] w-full rounded-none border border-zinc-700 object-cover object-center sm:h-[300px] lg:h-[360px]"
+          class="mb-4 h-[240px] w-full rounded-none border border-zinc-700 object-cover object-top sm:h-[300px] lg:h-[360px]"
           loading="lazy"
         >
         <div class="flex items-center gap-2">

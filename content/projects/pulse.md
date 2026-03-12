@@ -5,6 +5,7 @@ tags: [java, apm, observability, monitoring]
 stack: [java, spring-boot]
 year: 2026
 active: true
+cover: /projects/pulse.webp
 links:
   repo: https://github.com/briacdev/pulse
   demo: https://pulse.briacd.com/
