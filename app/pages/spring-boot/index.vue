@@ -166,35 +166,35 @@ const stepsFr: SpringBootRoadmapStep[] = [
     phase: 'Fondations',
     title: 'Fondamentaux Spring Boot',
     side: 'left',
-    points: ['Ce que Spring Boot apporte', 'Bases de l auto-configuration', 'Dependances starters']
+    points: ['Ce que Spring Boot apporte', "Bases de l'auto-configuration", 'Dépendances starter']
   },
   {
     id: 2,
     phase: 'Fondations',
     title: 'Initialisation du projet',
     side: 'right',
-    points: ['Workflow Initializr', 'Conventions de dossiers', 'Setup Maven ou Gradle']
+    points: ['Workflow Initializr', 'Conventions de dossiers', 'Configuration Maven ou Gradle']
   },
   {
     id: 3,
-    phase: 'Coeur',
-    title: 'Injection de dependances et beans',
+    phase: 'Cœur',
+    title: 'Injection de dépendances et beans',
     side: 'left',
     points: ['Cycle de vie des beans', 'Injection par constructeur', 'Classes de configuration']
   },
   {
     id: 4,
-    phase: 'Coeur',
+    phase: 'Cœur',
     title: 'Configuration et profils',
     side: 'right',
-    points: ['Strategie application.yml', 'Profils local/staging/production', 'Bases de gestion des secrets']
+    points: ['Stratégie application.yml', 'Profils local/staging/production', 'Bases de gestion des secrets']
   },
   {
     id: 5,
     phase: 'Web',
     title: 'Controllers REST',
     side: 'left',
-    points: ['Mapping des requetes', 'DTO de requete/reponse', 'Gestion des statuts HTTP']
+    points: ['Mapping des requêtes', 'DTO de requête/réponse', 'Gestion des statuts HTTP']
   },
   {
     id: 6,
@@ -208,42 +208,42 @@ const stepsFr: SpringBootRoadmapStep[] = [
     phase: 'Architecture',
     title: 'Design en couches',
     side: 'left',
-    points: ['Frontieres controller/service/repository', 'Placement de la logique metier', 'Strategie de mapping DTO']
+    points: ['Frontières controller/service/repository', 'Placement de la logique métier', 'Stratégie de mapping DTO']
   },
   {
     id: 8,
-    phase: 'Donnees',
+    phase: 'Données',
     title: 'Bases Spring Data JPA',
     side: 'right',
     points: ['Entites et repositories', 'CRUD et pagination', 'Conventions de methodes de requete']
   },
   {
     id: 9,
-    phase: 'Donnees',
-    title: 'CriteriaBuilder et requetes dynamiques',
+    phase: 'Données',
+    title: 'CriteriaBuilder et requêtes dynamiques',
     side: 'left',
-    points: ['Construire des predicats type-safe', 'Composer des filtres dynamiques', 'Composition de requetes style Specification']
+    points: ['Construire des prédicats type-safe', 'Composer des filtres dynamiques', 'Composition de requêtes style Specification']
   },
   {
     id: 10,
-    phase: 'Donnees',
-    title: 'Migrations de base de donnees',
+    phase: 'Données',
+    title: 'Migrations de base de données',
     side: 'right',
     points: ['Bases Flyway', 'Migrations versionnees', 'Changements de schema safe par environnement']
   },
   {
     id: 11,
-    phase: 'Securite',
-    title: 'Fondamentaux securite',
+    phase: 'Sécurité',
+    title: 'Fondamentaux sécurité',
     side: 'left',
-    points: ['Authentification vs autorisation', 'Modele mental filter chain', 'Protection des endpoints']
+    points: ['Authentification vs autorisation', 'Modèle mental filter chain', 'Protection des endpoints']
   },
   {
     id: 12,
-    phase: 'Securite',
+    phase: 'Sécurité',
     title: 'Approches JWT et API Key',
     side: 'right',
-    points: ['Flux de validation de token', 'Bases de rotation des cles', 'Trade-offs de securite']
+    points: ['Flux de validation de token', 'Bases de rotation des clés', 'Trade-offs de sécurité']
   },
   {
     id: 13,
@@ -255,16 +255,16 @@ const stepsFr: SpringBootRoadmapStep[] = [
   {
     id: 14,
     phase: 'Tests',
-    title: 'Tests d integration',
+    title: "Tests d'intégration",
     side: 'right',
-    points: ['Tests repository et API', 'Setup Testcontainers', 'Strategie de donnees de test stable']
+    points: ['Tests repository et API', 'Setup Testcontainers', 'Stratégie de données de test stable']
   },
   {
     id: 15,
     phase: 'Performance',
-    title: 'Strategie de cache',
+    title: 'Stratégie de cache',
     side: 'left',
-    points: ['Abstraction de cache', 'Strategie TTL et eviction', 'Patterns d invalidation de cache']
+    points: ['Abstraction de cache', 'Stratégie TTL et eviction', "Patterns d'invalidation de cache"]
   },
   {
     id: 16,
@@ -276,23 +276,23 @@ const stepsFr: SpringBootRoadmapStep[] = [
   {
     id: 17,
     phase: 'Performance',
-    title: 'Taches planifiees',
+    title: 'Tâches planifiées',
     side: 'left',
-    points: ['Patterns @Scheduled', 'Cron vs fixed delay/rate', 'Taches de fond idempotentes']
+    points: ['Patterns @Scheduled', 'Cron vs fixed delay/rate', 'Tâches de fond idempotentes']
   },
   {
     id: 18,
-    phase: 'Observabilite',
-    title: 'Actuator, metriques et tracing',
+    phase: 'Observabilité',
+    title: 'Actuator, métriques et tracing',
     side: 'right',
-    points: ['Health/readiness probes', 'Metriques Micrometer', 'Correlation des traces']
+    points: ['Health/readiness probes', 'Métriques Micrometer', 'Corrélation des traces']
   },
   {
     id: 19,
     phase: 'Delivery',
     title: 'Build et containerisation',
     side: 'left',
-    points: ['Jars executables', 'Strategie d image Docker', 'Configuration runtime']
+    points: ['Jars exécutables', "Stratégie d'image Docker", 'Configuration runtime']
   },
   {
     id: 20,
@@ -306,7 +306,7 @@ const stepsFr: SpringBootRoadmapStep[] = [
     phase: 'Production',
     title: 'Durcissement production',
     side: 'left',
-    points: ['Defaults securises', 'Strategie de rollback', 'Mentalite runbook operationnel']
+    points: ['Defaults sécurisés', 'Stratégie de rollback', 'Mentalité runbook opérationnel']
   }
 ]
 
@@ -317,11 +317,11 @@ const pageUi = computed(() => locale.value === 'fr'
   ? {
       kicker: "Parcours d'apprentissage",
       title: 'Roadmap Spring Boot',
-      description: "Une feuille de route progressive pour passer des bases Spring Boot a l'architecture, la securite, le testing et la production.",
+      description: "Une feuille de route progressive pour passer des bases Spring Boot à l'architecture, à la sécurité, au testing et à la production.",
       open: 'Ouvrir le tutoriel >',
-      soon: 'Bientot disponible',
+      soon: 'Bientôt disponible',
       seoTitle: 'Roadmap Spring Boot | Briac',
-      seoDescription: 'Roadmap visuelle Spring Boot, des fondamentaux a la production.',
+      seoDescription: 'Roadmap visuelle Spring Boot, des fondamentaux à la production.',
       seoOgTitle: 'Roadmap Spring Boot | Briac // Terminal Portfolio'
     }
   : {
@@ -344,6 +344,13 @@ const steps = computed(() => {
       return {
         ...step,
         path: localePath('/spring-boot/spring-boot-fundamentals')
+      }
+    }
+
+    if (step.id === 2) {
+      return {
+        ...step,
+        path: localePath('/spring-boot/project-setup')
       }
     }
 
