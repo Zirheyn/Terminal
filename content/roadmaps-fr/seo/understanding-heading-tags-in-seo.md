@@ -1,53 +1,103 @@
 ---
-title: "Titres Hn et hiérarchie du contenu"
-description: "Apprenez comment les headings structurent la lecture, clarifient le sujet et aident les moteurs comme les utilisateurs à comprendre la page."
-date: 2026-03-16
-tags: ["seo", "headings", "content", "on-page"]
+title: "Comprendre les balises de titre en SEO"
+description: "Les balises de titre structurent le contenu d’une page et aident les moteurs comme les utilisateurs à mieux la comprendre. Découvrez leur rôle, leur hiérarchie et les bonnes pratiques à adopter."
+date: 2025-02-10
+tags: [seo]
 draft: false
-readingTime: "7 min"
+readingTime: 4 min
+cover: /banner-test.jpg
 ---
 
-## Pourquoi ce sujet compte
+Les balises de titre sont un élément important du SEO on-page. Elles permettent de structurer le contenu, d’améliorer la lisibilité d’une page et d’aider les moteurs de recherche à mieux comprendre son organisation. Bien utilisées, elles rendent une page plus claire pour les utilisateurs comme pour les robots.
 
-Les balises de titre sont d'abord un outil de structure documentaire. Elles aident les utilisateurs à parcourir la page, à comprendre la hiérarchie du contenu et à décider où se concentrer. En SEO, cette même structure aide les moteurs à interpréter l'organisation du document et les sous-thèmes qui soutiennent le sujet principal.
+## Que sont les balises de titre ?
 
-Ce sujet relève du SEO on-page parce qu'il influence directement la manière dont une page exprime sa pertinence, son utilité et sa clarté pour les utilisateurs comme pour les moteurs.
+Les balises de titre sont des éléments HTML allant de `H1` à `H6`. Elles servent à définir les titres et sous-titres d’un contenu. `H1` représente le niveau le plus important, et `H6` le plus bas.
 
-## Idées clés à comprendre
+Au-delà de leur aspect visuel, ces balises donnent une vraie structure logique au document.
 
-La valeur des headings ne vient pas du fait d'y injecter des mots-clés à tout prix. Elle vient d'une hiérarchie claire : un sujet principal évident, des sections significatives et des sous-sections qui servent réellement l'objectif de la page. Quand les intertitres correspondent à une vraie structure, ils améliorent à la fois lecture et compréhension.
+### La hiérarchie des balises de titre
 
-Les mauvais usages viennent souvent d'une logique purement visuelle. Les équipes utilisent des headings parce qu'ils sont gros, ou sautent des niveaux parce que le design le permet. Une bonne stratégie démarre par le sens : le H1 nomme le sujet principal, les H2 découpent le thème en sections majeures, et les niveaux inférieurs n'apparaissent que si le contenu le justifie vraiment.
+La hiérarchie des headings est essentielle pour comprendre la structure d’une page.
 
-## Comment l'appliquer concrètement
+- **H1** : titre principal de la page ;
+- **H2** : grandes sections du contenu ;
+- **H3** : sous-sections à l’intérieur d’un H2 ;
+- **H4 à H6** : niveaux plus détaillés lorsque le contenu le justifie.
 
-Relisez une page en vous demandant si un utilisateur pourrait comprendre le plan du document rien qu'en lisant les intertitres. Vérifiez si le H1 correspond bien à la promesse de la page, si les H2 couvrent de vraies questions ou sous-thèmes, et si certains titres de template ne créent pas du bruit. Corrigez d'abord la structure avant de travailler le wording SEO.
+Voici un exemple HTML simple :
 
-Les meilleurs résultats apparaissent quand la promesse de la page, sa structure et sa valeur réelle sont alignées, au lieu d'optimiser des éléments visibles séparément.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Eating Habits</title>
+</head>
+<body>
+    <h1>Healthy Eating Habits</h1>
 
-## Exemple
+    <h2>The importance of a balanced diet</h2>
+    <h2>Key components of a healthy diet</h2>
 
-Un article intitulé How to secure a Spring Boot API fonctionne mieux quand ses intertitres guident la lecture entre authentification, autorisation, gestion des secrets et tests. Une version plus faible utilise des titres génériques comme Overview, Details ou More Information, qui n'apportent presque aucun contexte.
+    <h3>Fruits and vegetables</h3>
+    <h3>Whole grains</h3>
+    <h3>Lean proteins</h3>
 
-Des headings bien conçus rendent les pages longues plus faciles à parcourir, plus simples à enrichir et plus faciles à relier en interne. Ce sont d'abord un outil d'architecture éditoriale, et c'est précisément pour cela qu'ils aident le SEO de manière durable.
+    <h2>Staying hydrated</h2>
+    <h2>Tips for maintaining healthy eating habits</h2>
 
-## Erreurs fréquentes
+    <h3>Plan your meals</h3>
+    <h3>Cook at home</h3>
+    <h3>Limit processed foods</h3>
+</body>
+</html>
+```
 
-Les équipes perdent souvent en performance quand elles écrivent les headings pour le design au lieu du sens, quand elles bourrent les intertitres de mots-clés sans améliorer le plan et quand elles créent des hiérarchies plates ou incohérentes. Ces schémas sont trompeurs parce qu'ils semblent parfois anodins à court terme. Avec le temps, ils rendent pourtant les pages plus difficiles à découvrir, moins convaincantes au clic ou moins compétitives face à de meilleurs résultats.
+Dans cet exemple, la page possède un sujet principal, découpé en sections puis en sous-parties. Cette organisation aide à comprendre rapidement le contenu.
 
-## Checklist rapide
+## Pourquoi les balises de titre sont importantes en SEO
 
-- Utiliser un H1 clair pour le sujet principal.
-- Faire des H2 de vraies sections ou questions utilisateur.
-- N'utiliser les niveaux inférieurs que lorsqu'ils sont nécessaires.
-- Valider le plan logique avant d'optimiser le wording.
+### Améliorer l’expérience utilisateur
 
-## Ressources recommandées
+Des headings clairs permettent aux lecteurs de parcourir plus facilement une page longue. Ils peuvent repérer rapidement les sections qui les intéressent.
 
-Utilisez la documentation officielle comme source de vérité et les données de votre site comme couche d'arbitrage. Commencez par [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), [Google Search Central Documentation](https://developers.google.com/search/docs), [MDN meta element reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta). Comparez ensuite ce que recommandent ces sources avec ce que vous observez sur des pages représentatives, dans les rapports de recherche et dans le comportement réel des utilisateurs. C'est cette combinaison qui transforme la théorie en travail SEO reproductible.
+### Aider les moteurs de recherche
 
-## Sources
+Les moteurs utilisent les balises de titre pour mieux comprendre le sujet d’une page et la manière dont son contenu est organisé. Une structure claire renforce la cohérence du document.
 
-- [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
-- [Google Search Central Documentation](https://developers.google.com/search/docs)
-- [MDN meta element reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta)
+### Renforcer l’accessibilité
+
+Les lecteurs d’écran s’appuient souvent sur les headings pour naviguer dans une page. Une hiérarchie propre améliore donc aussi l’accessibilité.
+
+## Bonnes pratiques pour utiliser les balises de titre
+
+### Utiliser un seul H1 clair
+
+Le H1 doit représenter le sujet principal de la page. Il n’est pas nécessaire d’en avoir plusieurs si la structure est bien pensée.
+
+### Respecter une hiérarchie logique
+
+Il vaut mieux éviter de passer d’un H1 à un H4 sans raison. Les niveaux doivent suivre une logique de lecture.
+
+### Garder des titres utiles et descriptifs
+
+Les headings doivent aider à comprendre le contenu, pas seulement contenir des mots-clés. Un bon intertitre annonce clairement ce que la section va traiter.
+
+### Éviter le keyword stuffing
+
+Ajouter trop de mots-clés dans tous les titres nuit à la lisibilité et n’apporte pas de bénéfice durable.
+
+## Exemple concret
+
+Sur un article intitulé *How to secure a Spring Boot API*, de bons intertitres pourraient être :
+
+- Authentication methods
+- Authorization strategies
+- Secret management
+- API testing and monitoring
+
+À l’inverse, des titres vagues comme *Overview* ou *More information* aident beaucoup moins les utilisateurs et les moteurs à comprendre le contenu.
+
+Les balises de titre jouent donc un rôle structurant. Elles ne servent pas seulement à “faire joli” : elles organisent l’information, améliorent la lecture et participent à la compréhension globale de la page.

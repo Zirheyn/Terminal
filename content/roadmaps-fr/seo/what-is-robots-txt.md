@@ -1,53 +1,108 @@
 ---
-title: "Fondamentaux du robots.txt"
-description: "Comprenez ce que fait réellement le robots.txt, ce qu'il ne fait pas et comment l'utiliser proprement pour gérer le crawl."
-date: 2026-03-16
-tags: ["seo", "robots", "crawl", "technical"]
+title: "Qu’est-ce que robots.txt ?"
+description: "Découvrez ce qu’est le fichier robots.txt, comment il fonctionne et pourquoi il est utile pour contrôler le comportement des robots d’exploration et améliorer le SEO technique d’un site."
+date: 2025-02-03
+tags: []
 draft: false
-readingTime: "7 min"
+readingTime: 5 min
+cover: /banner-test.jpg
 ---
 
-## Pourquoi ce sujet compte
+Le fichier robots.txt est un simple fichier texte utilisé par les sites web pour donner des instructions aux robots d’exploration. Il permet d’indiquer quelles parties d’un site peuvent être visitées ou non par certains crawlers, notamment ceux des moteurs de recherche comme Googlebot.
 
-Le robots.txt est un fichier de gestion du crawl, pas un outil de secret ni un contrôle d'indexation fiable à lui seul. Son rôle est d'indiquer aux robots conformes quels chemins ne doivent pas être demandés. Cela le rend utile pour réduire le bruit technique, mais dangereux quand on lui attribue des fonctions qu'il n'a jamais eues.
+Ce fichier est placé à la racine du domaine. Par exemple, si votre site est `https://www.example.com`, le fichier sera accessible à l’adresse `https://www.example.com/robots.txt`.
 
-Ce sujet est technique parce qu'il change la manière dont les pages sont accessibles, interprétées ou rendues à grande échelle. Une petite erreur ici peut affecter un grand nombre d'URLs.
+Même s’il ne s’agit pas d’un outil de sécurité, le robots.txt reste un élément important du SEO technique et de la gestion de la performance d’un site.
 
-## Idées clés à comprendre
+## Comment fonctionne robots.txt
 
-La distinction la plus importante est celle entre crawl et indexation. Bloquer une URL dans robots.txt peut empêcher son exploration, mais cela ne garantit pas sa disparition des résultats si d'autres signaux continuent de pointer vers elle. De la même façon, robots.txt n'est pas un mécanisme de protection pour des contenus sensibles.
+Lorsqu’un robot arrive sur un site, il cherche généralement à lire le fichier robots.txt avant de poursuivre son exploration. S’il trouve ce fichier, il analyse les règles qu’il contient pour savoir quels chemins il doit éviter.
 
-Un bon fichier robots.txt reste généralement conservateur. Il bloque des zones clairement peu utiles comme la recherche interne, certains chemins filtrés dupliqués ou des sections d'administration qui ne doivent pas être explorées. Il ne bloque pas les assets utiles au rendu et n'empêche pas légèrement par défaut l'accès aux sections importantes du site.
+Ces règles sont définies à l’aide de directives comme **User-agent**, **Disallow** et **Allow**.
 
-## Comment l'appliquer concrètement
+- **User-agent** désigne le robot concerné par la règle.
+- **Disallow** indique quels chemins ne doivent pas être explorés.
+- **Allow** précise quelles URLs peuvent rester accessibles, même si un dossier parent est bloqué.
 
-Relisez ce fichier à chaque changement significatif de routage ou de section. Vérifiez que les motifs bloqués ont toujours du sens, qu'ils n'embarquent pas des URLs stratégiques et qu'ils ne contredisent pas votre stratégie d'indexation plus large. Sur des sites complexes, associez cette revue à des tests de crawl et à des logs.
+### Exemple simple de fichier robots.txt
 
-Un bon workflow commence avec quelques URLs stratégiques, mais l'objectif final reste toujours d'améliorer le template, la configuration ou la règle sous-jacente pour que le correctif s'applique à grande échelle.
+```txt
+User-agent: *
+Disallow: /private/
+Allow: /public/
+```
 
-## Exemple
+Dans cet exemple, les règles s’appliquent à tous les robots. Le dossier `/private/` est bloqué, tandis que `/public/` reste autorisé.
 
-Bloquer /search/ ou certains chemins de navigation facettée peut être pertinent si ces URLs génèrent un fort volume de crawl sans vraie valeur. Bloquer /blog/ ou /products/ par erreur produit l'effet inverse : la découverte ralentit et le diagnostic devient confus lorsque les impressions ou l'indexation chutent.
+## Pourquoi robots.txt est important
 
-Utilisé avec soin, le robots.txt réduit le gaspillage de crawl et clarifie la surface technique du site. Utilisé sans vérification, il crée des problèmes invisibles : les pages existent encore, mais les moteurs n'interagissent plus avec elles comme prévu.
+### Améliorer la performance du site
 
-## Erreurs fréquentes
+En empêchant les robots d’accéder à certaines zones inutiles, vous pouvez limiter les requêtes sur le serveur. Cela est particulièrement utile si votre site comporte des fichiers lourds, des pages techniques ou des paramètres sans intérêt SEO.
 
-Les équipes perdent souvent en performance quand elles utilisent robots.txt pour cacher du contenu sensible, quand elles pensent qu'un blocage supprime automatiquement une URL de Google et quand elles ajoutent des règles larges sans vérifier les correspondances exactes. Ces schémas sont trompeurs parce qu'ils semblent parfois anodins à court terme. Avec le temps, ils rendent pourtant les pages plus difficiles à découvrir, moins convaincantes au clic ou moins compétitives face à de meilleurs résultats.
+### Réduire les problèmes de contenu dupliqué
 
-## Checklist rapide
+Certaines URLs peuvent afficher des contenus très proches ou identiques, notamment sur des pages filtrées, triées ou générées dynamiquement. Le robots.txt peut aider à limiter l’exploration de certaines de ces variantes.
 
-- Utiliser robots.txt pour gérer le crawl, pas la confidentialité.
-- Laisser crawlables les sections stratégiques et les assets utiles au rendu.
-- Tester les motifs de blocage avant déploiement.
-- Revoir le fichier à chaque évolution importante du site.
+### Éviter d’exposer des zones peu utiles
 
-## Ressources recommandées
+Sans être une solution de sécurité, le robots.txt peut empêcher les moteurs de consacrer du temps à explorer des pages de connexion, des environnements de test ou d’autres zones sans valeur pour la recherche.
 
-Utilisez la documentation officielle comme source de vérité et les données de votre site comme couche d'arbitrage. Commencez par [Google Search Central Documentation](https://developers.google.com/search/docs), [SEO Guide for Web Developers](https://developers.google.com/search/docs/fundamentals/get-started-developers), [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide). Comparez ensuite ce que recommandent ces sources avec ce que vous observez sur des pages représentatives, dans les rapports de recherche et dans le comportement réel des utilisateurs. C'est cette combinaison qui transforme la théorie en travail SEO reproductible.
+### Orienter le crawl vers les pages importantes
 
-## Sources
+Bien utilisé, ce fichier aide les moteurs à concentrer leur exploration sur les parties les plus utiles du site.
 
-- [Google Search Central Documentation](https://developers.google.com/search/docs)
-- [SEO Guide for Web Developers](https://developers.google.com/search/docs/fundamentals/get-started-developers)
-- [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+## Erreurs fréquentes à éviter
+
+### Bloquer des pages importantes
+
+Il arrive souvent de bloquer involontairement des pages qui devraient rester indexables, comme des fiches produits, des articles ou même la page d’accueil. Il faut toujours tester les règles avant de les déployer.
+
+### Mal utiliser les wildcards
+
+Les caractères comme `*` ou `$` sont pratiques, mais une mauvaise règle peut bloquer bien plus de pages que prévu.
+
+Par exemple :
+
+```txt
+Disallow: /search*
+```
+
+Cette directive bloque toutes les URLs qui commencent par `/search`, ce qui peut parfois aller trop loin selon la structure du site.
+
+### Oublier la gestion du rythme de crawl
+
+Certains robots prennent en charge des directives comme `Crawl-delay`, qui permettent de ralentir le nombre de requêtes si le serveur est fragile.
+
+```txt
+User-agent: Googlebot
+Crawl-delay: 10
+```
+
+Cela signifie que le robot doit attendre 10 secondes entre deux requêtes.
+
+## Tester et valider robots.txt
+
+Après avoir créé ou modifié le fichier, il est important de le tester. Google a longtemps proposé un robots.txt Tester dans Search Console, et il reste utile de vérifier ses règles avec des outils d’audit ou des crawlers SEO pour voir précisément quelles pages sont bloquées ou autorisées.
+
+Le bon réflexe consiste à tester quelques URLs stratégiques avant la mise en production.
+
+## Bonnes pratiques pour robots.txt
+
+### Garder le fichier simple
+
+Un robots.txt n’a pas besoin d’être compliqué. Des règles lisibles et limitées sont souvent plus sûres qu’un fichier surchargé.
+
+### Ne pas bloquer les assets importants
+
+Il faut éviter de bloquer les fichiers CSS, JavaScript ou images nécessaires au rendu de la page, car les moteurs peuvent en avoir besoin pour bien comprendre le contenu.
+
+### Mettre le fichier à jour régulièrement
+
+À mesure que le site évolue, le fichier doit lui aussi évoluer. Un robots.txt oublié peut devenir incohérent avec la structure réelle du site.
+
+### Ne jamais s’en servir comme protection de sécurité
+
+Si vous devez protéger une zone sensible, il faut mettre en place une vraie authentification côté serveur. Le robots.txt n’empêche pas un utilisateur ou un robot malveillant d’accéder à une URL connue.
+
+Le fichier robots.txt est petit, mais il peut avoir un impact important sur la manière dont les moteurs explorent un site. En le structurant correctement, vous améliorez la gestion du crawl, limitez certaines explorations inutiles et gardez un meilleur contrôle sur la surface technique du site.

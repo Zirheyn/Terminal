@@ -1,53 +1,62 @@
 ---
-title: "Optimisation des images"
-description: "Apprenez comment l'optimisation des images améliore le SEO grâce à un chargement plus rapide, une meilleure accessibilité et un contexte de page plus clair."
-date: 2026-03-16
-tags: ["seo", "images", "performance", "accessibility"]
+title: "Optimisation des images pour le SEO"
+description: "L’optimisation des images améliore la vitesse d’un site, renforce l’accessibilité et aide les moteurs de recherche à mieux comprendre le contenu d’une page."
+date: 2025-02-06
+tags: [seo]
 draft: false
-readingTime: "7 min"
+readingTime: 5 min
+cover: /banner-test.jpg
 ---
 
-## Pourquoi ce sujet compte
+L’optimisation des images est souvent sous-estimée alors qu’elle joue un rôle important dans la performance d’un site. Des images trop lourdes ralentissent le chargement des pages, nuisent à l’expérience utilisateur et peuvent impacter négativement le référencement. À l’inverse, des images bien optimisées améliorent à la fois la vitesse, la compréhension du contenu et l’accessibilité.
 
-L'optimisation des images soutient le SEO parce que les images influencent à la fois la performance et le sens. Elles changent la vitesse de chargement, l'accessibilité et la capacité des moteurs à comprendre ce que contient réellement la page. Une bonne stratégie visuelle améliore l'expérience sans transformer les médias en poids inutile.
+## Pourquoi l’optimisation des images est importante pour le SEO
 
-Ce sujet compte pour le SEO des médias parce que les assets visuels ou multimédias participent à la découvrabilité, à la pertinence et à l'expérience, en particulier sur les sites riches en contenu.
+Les images occupent une place importante sur de nombreux sites : fiches produits, articles de blog, illustrations, visuels marketing ou captures d’écran. Si elles ne sont pas bien gérées, elles peuvent alourdir fortement la page.
 
-## Idées clés à comprendre
+Google prend en compte la vitesse de chargement comme signal de qualité. Des pages plus rapides ont souvent de meilleures chances d’obtenir de bonnes performances SEO. Les images aident aussi les moteurs à mieux comprendre le contexte de la page, à condition qu’elles soient correctement nommées et intégrées.
 
-La première couche est l'efficacité technique : bonne dimension, compression, livraison responsive et formats modernes quand ils sont pertinents. La seconde couche est la clarté sémantique : rôle de l'image, alt text utile quand il apporte une vraie information, éventuelle légende, et placement cohérent avec le sujet de la page.
+## Comment optimiser les images pour le SEO
 
-Toutes les images ne demandent pas le même traitement. Un visuel décoratif n'appelle pas le même niveau de description qu'une capture produit, un graphique ou une illustration de procédure. Le SEO image dépend donc fortement du contexte. Le but n'est pas d'écrire mécaniquement un alt text partout, mais de décider quelle information l'image apporte réellement.
+### Choisir le bon format
 
-## Comment l'appliquer concrètement
+Le format d’image influence à la fois la qualité et le poids du fichier.
 
-Examinez les templates importants du point de vue des dimensions, du comportement de chargement et du format de livraison. Auditez ensuite l'usage éditorial : les captures sont-elles utiles, les schémas sont-ils lisibles, et les alt texts décrivent-ils un contenu important pour la compréhension. Enfin, confrontez cette couche média à vos rapports de performance.
+- **JPEG** convient bien aux photos et images riches en couleurs.
+- **PNG** est utile pour les images avec transparence ou les visuels simples.
+- **WebP** permet souvent un bon équilibre entre qualité et légèreté.
+- **SVG** est idéal pour les logos, icônes et illustrations vectorielles.
 
-L'implémentation doit équilibrer qualité éditoriale, efficacité technique et accessibilité afin que les médias renforcent la page au lieu de la ralentir ou de brouiller son sens.
+### Compresser les images sans perdre trop de qualité
 
-## Exemple
+Des outils comme [TinyPNG](https://tinypng.com/), [ImageOptim](https://imageoptim.com/fr) ou [Squoosh](https://squoosh.app/) permettent de réduire le poids des fichiers tout en gardant un rendu propre.
 
-Un tutoriel rempli de captures très lourdes peut sembler utile visuellement tout en restant faible globalement si la page charge lentement et si les images manquent de contexte. Une meilleure implémentation utilise des tailles responsives, des assets compressés, un alt text pertinent lorsque nécessaire et un texte autour de l'image qui explique quoi regarder.
+### Redimensionner correctement les fichiers
 
-Quand les images sont bien optimisées, la page charge plus vite, le contenu devient plus facile à comprendre et le site gagne en accessibilité. Ces bénéfices se renforcent mutuellement, ce qui explique pourquoi l'optimisation des images relève à la fois du SEO technique et éditorial.
+Il ne faut pas envoyer une image de 2000 px de large si elle n’est affichée qu’en 300 px dans la page. Redimensionner les images avant leur mise en ligne évite un chargement inutilement lourd.
 
-## Erreurs fréquentes
+### Utiliser des noms de fichiers descriptifs
 
-Les équipes perdent souvent en performance quand elles envoient des assets trop lourds issus directement des outils design, quand elles écrivent des alt texts mécaniques sans réfléchir au rôle réel de l'image et quand elles traitent l'imagerie comme un sujet séparé de la vitesse et de l'accessibilité. Ces schémas sont trompeurs parce qu'ils semblent parfois anodins à court terme. Avec le temps, ils rendent pourtant les pages plus difficiles à découvrir, moins convaincantes au clic ou moins compétitives face à de meilleurs résultats.
+Les moteurs ne “voient” pas les images comme les humains. Le nom du fichier fournit un premier indice sur son contenu. Un nom comme `blue-running-shoes.jpg` sera toujours plus utile que `IMG_1234.jpg`.
 
-## Checklist rapide
+### Ajouter un texte alternatif pertinent
 
-- Servir les images dans des dimensions et formats adaptés.
-- Utiliser l'alt text seulement quand il apporte une vraie information.
-- Vérifier la lisibilité des captures et schémas sur mobile.
-- Auditer les pages riches en images avec un regard performance et éditorial.
+L’attribut `alt` améliore l’accessibilité et aide les moteurs à comprendre l’image. Il doit décrire le visuel quand cela apporte une vraie information.
 
-## Ressources recommandées
+Par exemple : `Chaussure de running bleue pour homme`.
 
-Utilisez la documentation officielle comme source de vérité et les données de votre site comme couche d'arbitrage. Commencez par [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), [web.dev Core Web Vitals](https://web.dev/articles/vitals), [Google Search Central Documentation](https://developers.google.com/search/docs). Comparez ensuite ce que recommandent ces sources avec ce que vous observez sur des pages représentatives, dans les rapports de recherche et dans le comportement réel des utilisateurs. C'est cette combinaison qui transforme la théorie en travail SEO reproductible.
+## Conseils complémentaires
 
-## Sources
+### Utiliser des images responsives
 
-- [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
-- [web.dev Core Web Vitals](https://web.dev/articles/vitals)
-- [Google Search Central Documentation](https://developers.google.com/search/docs)
+Avec l’attribut `srcset`, il est possible de servir des tailles différentes selon la largeur d’écran. Cela évite de faire télécharger des images trop lourdes aux visiteurs mobiles.
+
+### Ajouter les images au sitemap
+
+Sur les sites riches en médias, les images peuvent aussi être mentionnées dans un sitemap XML ou dans un sitemap spécifique afin d’aider les moteurs à les découvrir.
+
+### Mettre en place le cache navigateur
+
+Le cache permet aux visiteurs récurrents de ne pas recharger les mêmes images à chaque visite, ce qui améliore la rapidité globale du site.
+
+L’optimisation des images est une partie importante du SEO technique et de l’expérience utilisateur. En choisissant les bons formats, en compressant les fichiers, en adaptant les dimensions et en ajoutant un contexte utile, vous améliorez à la fois la performance et la lisibilité de vos pages.
