@@ -1,3 +1,6 @@
+import { useI18n } from '#i18n'
+import { normalizeSeoRoadmapPath, sortSeoRoadmapItems } from '../data/seo-roadmap'
+
 export interface SeoRoadmapPost {
   path: string
   title: string
@@ -17,26 +20,28 @@ export interface SeoRoadmapPost {
   }
 }
 
+const queryCollectionLoose = queryCollection as unknown as (collection: string) => {
+  where: (field: string, operator: '=', value: boolean) => { all: () => Promise<SeoRoadmapPost[]> }
+}
+
 export const useSeoRoadmaps = async () => {
-  const posts = await queryCollection('roadmaps')
-    .where('draft', '=', false)
-    .all() as SeoRoadmapPost[]
+  const { locale } = useI18n()
 
-  const normalizeSeoPath = (path: string) => {
-    if (path.startsWith('/seo/')) {
-      return path
-    }
-    if (path.startsWith('/roadmaps/seo/')) {
-      return path.replace('/roadmaps/seo/', '/seo/')
-    }
-    return path
-  }
+  const rawPosts = locale.value === 'fr'
+    ? await queryCollectionLoose('roadmapsFr').where('draft', '=', false).all()
+    : await queryCollection('roadmaps').where('draft', '=', false).all() as SeoRoadmapPost[]
 
-  return posts
-    .filter((post) => post.path.startsWith('/seo/') || post.path.startsWith('/roadmaps/seo/'))
-    .map((post) => ({
-      ...post,
-      path: normalizeSeoPath(post.path)
-    }))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return sortSeoRoadmapItems(
+    rawPosts
+      .filter((post) =>
+        post.path.startsWith('/seo/') ||
+        post.path.startsWith('/roadmaps/seo/') ||
+        post.path.startsWith('/roadmaps-fr/seo/')
+      )
+      .map((post) => ({
+        ...post,
+        path: normalizeSeoRoadmapPath(post.path),
+        tags: post.tags ?? []
+      }))
+  )
 }

@@ -1,289 +1,71 @@
 <script setup lang="ts">
-interface SeoRoadmapStep {
+import { useI18n, useLocalePath } from "#i18n"
+import { seoRoadmapSteps, type SeoRoadmapStepDefinition } from "../../data/seo-roadmap"
+
+interface SeoRoadmapStepView {
   id: number
+  side: "left" | "right"
   phase: string
   title: string
-  side: 'left' | 'right'
   points: string[]
-  path?: string
+  path: string
 }
 
-const steps: SeoRoadmapStep[] = [
-  {
-    id: 1,
-    phase: 'Foundations',
-    title: 'Basics of SEO',
-    side: 'left',
-    points: ['What SEO is and why it matters', 'Organic vs paid visibility', 'Core ranking principles']
-  },
-  {
-    id: 2,
-    phase: 'Foundations',
-    title: 'Role of SEO',
-    side: 'right',
-    points: ['SEO in product growth', 'Acquisition and retention impact', 'Long-term compounding effects']
-  },
-  {
-    id: 3,
-    phase: 'Foundations',
-    title: 'Keyword Research in SEO',
-    side: 'left',
-    points: ['Search intent mapping', 'Topic clustering', 'Keyword prioritization']
-  },
-  {
-    id: 4,
-    phase: 'Foundations',
-    title: 'How Search Algorithms Work',
-    side: 'right',
-    points: ['Crawling and indexing basics', 'Ranking signals overview', 'Why relevance and authority matter'],
-    path: '/seo/understanding-how-search-engine-algorithms-work'
-  },
-  {
-    id: 5,
-    phase: 'Site Architecture',
-    title: 'Structure Your Website for SEO',
-    side: 'left',
-    points: ['Clear hierarchy', 'Internal linking strategy', 'Topic clustering'],
-    path: '/seo/how-to-structure-a-website-for-better-seo'
-  },
-  {
-    id: 6,
-    phase: 'Technical SEO',
-    title: 'SEO-Friendly URL Structure',
-    side: 'right',
-    points: ['Simple and stable slugs', 'No keyword stuffing', 'Consistent conventions'],
-    path: '/seo/a-guide-to-seo-friendly-url-structure'
-  },
-  {
-    id: 7,
-    phase: 'Technical SEO',
-    title: 'Mobile SEO',
-    side: 'left',
-    points: ['Mobile-first indexing', 'Responsive UX', 'Touch-friendly navigation']
-  },
-  {
-    id: 8,
-    phase: 'Technical SEO',
-    title: 'Robots.txt Fundamentals',
-    side: 'right',
-    points: ['Control crawler access', 'Avoid accidental blocking', 'Validate directives'],
-    path: '/seo/what-is-robots-txt'
-  },
-  {
-    id: 9,
-    phase: 'Technical SEO',
-    title: 'XML Sitemap Setup',
-    side: 'left',
-    points: ['Expose important URLs', 'Handle canonical pages', 'Submit and monitor'],
-    path: '/seo/introduction-to-xml-sitemap'
-  },
-  {
-    id: 10,
-    phase: 'Technical SEO',
-    title: 'Site Speed Optimization',
-    side: 'right',
-    points: ['Core Web Vitals basics', 'Rendering and asset optimization', 'Performance budget mindset']
-  },
-  {
-    id: 11,
-    phase: 'International SEO',
-    title: 'Multi-language SEO',
-    side: 'left',
-    points: ['Language targeting strategy', 'Locale-aware architecture', 'Regional content consistency']
-  },
-  {
-    id: 12,
-    phase: 'On-Page SEO',
-    title: 'Meta Tags',
-    side: 'right',
-    points: ['Title and meta descriptions', 'Indexation directives', 'SERP snippet quality']
-  },
-  {
-    id: 13,
-    phase: 'On-Page SEO',
-    title: 'Heading Tags and Content Hierarchy',
-    side: 'left',
-    points: ['H1/H2/H3 semantics', 'Readable structure', 'Keyword placement with intent'],
-    path: '/seo/understanding-heading-tags-in-seo'
-  },
-  {
-    id: 14,
-    phase: 'On-Page SEO',
-    title: 'Title Tag Optimization',
-    side: 'right',
-    points: ['Title clarity', 'SERP CTR impact', 'Brand + keyword balance'],
-    path: '/seo/title-tag-a-key-element-in-seo'
-  },
-  {
-    id: 15,
-    phase: 'On-Page SEO',
-    title: 'Noindex Strategy',
-    side: 'left',
-    points: ['When to hide pages', 'Avoid index bloat', 'Audit noindex usage'],
-    path: '/seo/understanding-the-noindex-meta-tag-in-seo'
-  },
-  {
-    id: 16,
-    phase: 'On-Page SEO',
-    title: 'Keyword Usage and Placement',
-    side: 'right',
-    points: ['Match query intent', 'Avoid stuffing', 'Place terms naturally in strategic sections']
-  },
-  {
-    id: 17,
-    phase: 'On-Page SEO',
-    title: 'Content Quality',
-    side: 'left',
-    points: ['Depth and clarity', 'Unique value per page', 'Content freshness strategy']
-  },
-  {
-    id: 18,
-    phase: 'On-Page SEO',
-    title: 'Internal Linking',
-    side: 'right',
-    points: ['Contextual anchors', 'Topical relevance', 'Crawl depth control']
-  },
-  {
-    id: 19,
-    phase: 'Media SEO',
-    title: 'Image Optimization',
-    side: 'left',
-    points: ['Compression and formats', 'Alt text quality', 'Performance impact'],
-    path: '/seo/image-optimization-for-seo'
-  },
-  {
-    id: 20,
-    phase: 'International SEO',
-    title: 'Hreflang Tags',
-    side: 'right',
-    points: ['Language targeting', 'Regional variants', 'Avoid duplicate language conflicts'],
-    path: '/seo/understanding-hrefang-tags-and-their-importance-in-seo'
-  },
-  {
-    id: 21,
-    phase: 'On-Page SEO',
-    title: 'Open Graph and Social Metadata',
-    side: 'left',
-    points: ['Control social previews', 'Consistent brand snippets', 'Improve share CTR']
-  },
-  {
-    id: 22,
-    phase: 'On-Page SEO',
-    title: 'Duplicate Content',
-    side: 'right',
-    points: ['Canonical strategy', 'Prevent URL variants duplication', 'Consolidate ranking signals']
-  },
-  {
-    id: 23,
-    phase: 'Authority',
-    title: 'Backlinks and Link Signals',
-    side: 'left',
-    points: ['Link quality > quantity', 'Natural acquisition', 'Anchor profile awareness'],
-    path: '/seo/understanding-backlinks-and-their-importance-in-seo'
-  },
-  {
-    id: 24,
-    phase: 'Off-Page SEO',
-    title: 'Social Signals',
-    side: 'right',
-    points: ['Amplify content reach', 'Engagement-driven discovery', 'Brand trust reinforcement']
-  },
-  {
-    id: 25,
-    phase: 'Off-Page SEO',
-    title: 'Brand Mentions',
-    side: 'left',
-    points: ['Unlinked mentions tracking', 'Authority correlation', 'Digital PR opportunities']
-  },
-  {
-    id: 26,
-    phase: 'Off-Page SEO',
-    title: 'Guest Blogging',
-    side: 'right',
-    points: ['Editorial placement quality', 'Topical relevance', 'Avoid low-quality link schemes']
-  },
-  {
-    id: 27,
-    phase: 'Off-Page SEO',
-    title: 'Content Marketing',
-    side: 'left',
-    points: ['Content distribution loops', 'Lead magnet strategy', 'Evergreen assets']
-  },
-  {
-    id: 28,
-    phase: 'Entity & Rich Results',
-    title: 'Structured Data Markup',
-    side: 'right',
-    points: ['Schema.org basics', 'Rich snippets eligibility', 'Validation and monitoring'],
-    path: '/seo/structured-data-markup-enhancing-seo-and-search-visibility'
-  },
-  {
-    id: 29,
-    phase: 'Brand & Domain',
-    title: 'Choosing a Domain for SEO',
-    side: 'left',
-    points: ['Brandability and trust', 'Domain history checks', 'Long-term naming strategy'],
-    path: '/seo/choosing-your-domain-name-for-seo'
-  },
-  {
-    id: 30,
-    phase: 'SEO Analytics & Reporting',
-    title: 'Google Analytics',
-    side: 'right',
-    points: ['Measure organic sessions', 'Track landing page performance', 'Segment acquisition channels']
-  },
-  {
-    id: 31,
-    phase: 'SEO Analytics & Reporting',
-    title: 'Google Search Console',
-    side: 'left',
-    points: ['Coverage and indexing checks', 'Query and page performance', 'Technical issue alerts']
-  },
-  {
-    id: 32,
-    phase: 'SEO Analytics & Reporting',
-    title: 'Traffic Analysis',
-    side: 'right',
-    points: ['Trends and seasonality', 'Content decay detection', 'Opportunity prioritization']
-  },
-  {
-    id: 33,
-    phase: 'SEO Tools',
-    title: 'SEMrush',
-    side: 'left',
-    points: ['Competitive keyword insights', 'Backlink analysis', 'Site audit workflows']
-  },
-  {
-    id: 34,
-    phase: 'SEO Tools',
-    title: 'PageSpeed Insights',
-    side: 'right',
-    points: ['CWV diagnostics', 'Performance opportunities', 'Template-level optimization']
-  },
-  {
-    id: 35,
-    phase: 'SEO Tools',
-    title: 'Google Keyword Planner',
-    side: 'left',
-    points: ['Search volume validation', 'Topic expansion ideas', 'Intent-informed planning']
-  }
-]
+const { locale } = useI18n()
+const localePath = useLocalePath()
+
+const steps = computed<SeoRoadmapStepView[]>(() =>
+  seoRoadmapSteps.map((step: SeoRoadmapStepDefinition) => ({
+    id: step.id,
+    side: step.side,
+    phase: step.phase[locale.value === "fr" ? "fr" : "en"],
+    title: step.title[locale.value === "fr" ? "fr" : "en"],
+    points: step.points[locale.value === "fr" ? "fr" : "en"],
+    path: `/seo/${step.slug}`
+  }))
+)
+
+const pageUi = computed(() =>
+  locale.value === "fr"
+    ? {
+        kicker: "Parcours d'apprentissage",
+        title: "Roadmap SEO",
+        intro:
+          "Un parcours progressif pour passer des bases du SEO à l'implémentation technique, à la qualité éditoriale et à la croissance durable.",
+        openTutorial: "Ouvrir le tutoriel >",
+        seoTitle: "Roadmap SEO | Briac",
+        seoDescription:
+          "Roadmap SEO visuelle et bilingue, des fondamentaux à l'exécution technique, éditoriale et analytique.",
+        seoOgTitle: "Roadmap SEO | Briac // Terminal Portfolio"
+      }
+    : {
+        kicker: "Learning Path",
+        title: "SEO Roadmap",
+        intro:
+          "A step-by-step path from SEO fundamentals to technical implementation, content quality, and long-term growth.",
+        openTutorial: "Open tutorial >",
+        seoTitle: "SEO Roadmap | Briac",
+        seoDescription:
+          "Visual bilingual SEO roadmap from fundamentals to technical implementation, content quality, and analytics.",
+        seoOgTitle: "SEO Roadmap | Briac // Terminal Portfolio"
+      }
+)
 
 useSeoMeta({
-  title: 'SEO Roadmap',
-  description: 'Visual SEO roadmap from fundamentals to advanced technical and content optimization topics.',
-  ogTitle: 'SEO Roadmap | Briac',
-  ogDescription: 'Visual SEO roadmap from fundamentals to advanced technical and content optimization topics.'
+  title: () => pageUi.value.seoTitle,
+  description: () => pageUi.value.seoDescription,
+  ogTitle: () => pageUi.value.seoOgTitle,
+  ogDescription: () => pageUi.value.seoDescription
 })
 </script>
 
 <template>
   <section class="seo-roadmap space-y-8">
     <header class="space-y-3 border border-zinc-700 bg-zinc-950 p-5 sm:p-7">
-      <p class="section-kicker">Learning Path</p>
-      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">SEO Roadmap</h1>
+      <p class="section-kicker">{{ pageUi.kicker }}</p>
+      <h1 class="text-3xl font-black uppercase tracking-tight sm:text-5xl">{{ pageUi.title }}</h1>
       <p class="max-w-3xl text-zinc-300">
-        A step-by-step path from SEO fundamentals to technical implementation, content quality, and long-term growth.
+        {{ pageUi.intro }}
       </p>
     </header>
 
@@ -305,19 +87,14 @@ useSeoMeta({
             <li v-for="point in step.points" :key="point">{{ point }}</li>
           </ul>
           <NuxtLink
-            v-if="step.path"
-            :to="step.path"
+            :to="localePath(step.path)"
             class="mt-3 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-zinc-300 no-underline hover:underline"
           >
-            Open Tutorial >
+            {{ pageUi.openTutorial }}
           </NuxtLink>
-          <p v-else class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
-            Coming soon
-          </p>
         </div>
       </article>
     </div>
-
   </section>
 </template>
 
