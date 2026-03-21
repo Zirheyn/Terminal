@@ -127,6 +127,8 @@ useSeoMeta({
         </div>
       </article>
     </div>
+
+    <RoadmapArticleFeed roadmap-name="PostgreSQL" :search-terms="['postgresql']" search-query="postgresql" />
   </section>
 </template>
 

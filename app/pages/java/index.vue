@@ -517,6 +517,8 @@ useSeoMeta({
         </div>
       </article>
     </div>
+
+    <RoadmapArticleFeed roadmap-name="Java" :search-terms="['java']" search-query="java" />
   </section>
 </template>
 

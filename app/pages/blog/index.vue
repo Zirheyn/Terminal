@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useI18n } from '#i18n'
 
-const search = ref('')
+const route = useRoute()
+const initialSearch = typeof route.query.search === 'string' ? route.query.search : ''
+const search = ref(initialSearch)
 const activeTag = ref<string | null>(null)
 const posts = await usePosts()
 const { t } = useI18n()

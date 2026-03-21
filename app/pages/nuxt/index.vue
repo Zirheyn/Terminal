@@ -127,6 +127,8 @@ useSeoMeta({
         </div>
       </article>
     </div>
+
+    <RoadmapArticleFeed roadmap-name="Nuxt" :search-terms="['nuxt']" search-query="nuxt" />
   </section>
 </template>
 

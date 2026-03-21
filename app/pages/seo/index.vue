@@ -95,6 +95,8 @@ useSeoMeta({
         </div>
       </article>
     </div>
+
+    <RoadmapArticleFeed roadmap-name="SEO" :search-terms="['seo']" search-query="seo" />
   </section>
 </template>
 

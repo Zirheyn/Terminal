@@ -406,6 +406,8 @@ useSeoMeta({
         </div>
       </article>
     </div>
+
+    <RoadmapArticleFeed roadmap-name="Spring Boot" :search-terms="['spring boot', 'springboot']" search-query="spring boot" />
   </section>
 </template>
 

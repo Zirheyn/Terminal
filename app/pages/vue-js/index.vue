@@ -127,6 +127,8 @@ useSeoMeta({
         </div>
       </article>
     </div>
+
+    <RoadmapArticleFeed roadmap-name="Vue.js" :search-terms="['vue.js', 'vue js', 'vue']" search-query="vue" />
   </section>
 </template>
 
