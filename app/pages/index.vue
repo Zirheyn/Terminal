@@ -55,6 +55,15 @@ const featuredRoadmaps = computed(() => ([
     cover: '/banner-test.jpg'
   },
   {
+    path: localePath('/ai'),
+    title: 'AI Roadmap',
+    description: locale.value === 'fr'
+      ? 'Parcours progressif sur l IA moderne: LLMs, prompting, RAG, serving et mise en production.'
+      : 'Progressive AI path covering LLMs, prompting, RAG, serving, and production systems.',
+    tags: ['roadmap', 'ai'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: localePath('/seo'),
     title: 'SEO Roadmap',
     description: locale.value === 'fr'

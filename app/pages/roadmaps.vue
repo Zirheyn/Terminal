@@ -46,6 +46,13 @@ const roadmaps: RoadmapItem[] = [
     cover: '/banner-test.jpg'
   },
   {
+    path: '/ai',
+    title: 'AI Roadmap',
+    description: 'A practical path from AI fundamentals to modern LLM systems, RAG pipelines, and production deployment.',
+    tags: ['roadmap', 'ai', 'llm'],
+    cover: '/banner-test.jpg'
+  },
+  {
     path: '/seo',
     title: 'SEO Roadmap',
     description: 'A structured path from SEO basics to technical implementation and long-term growth.',
@@ -80,9 +87,9 @@ const filteredRoadmaps = computed(() => {
 
 useSeoMeta({
   title: 'Roadmaps',
-  description: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, Vue.js, Nuxt, and SEO with visual progression and practical resources.',
+  description: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, Vue.js, Nuxt, AI, and SEO with visual progression and practical resources.',
   ogTitle: 'Roadmaps | Briac',
-  ogDescription: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, Vue.js, Nuxt, and SEO with visual progression and practical resources.'
+  ogDescription: 'Learning roadmaps for Java, Spring Boot, PostgreSQL, Vue.js, Nuxt, AI, and SEO with visual progression and practical resources.'
 })
 </script>
 
