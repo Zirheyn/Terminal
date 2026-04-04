@@ -17,6 +17,7 @@
     "@nuxt/ui": "^4.6.0",
     "@nuxtjs/i18n": "^10.2.3",
     "@tailwindcss/vite": "^4.1.0",
+    "@waline/client": "^3.13.0",
     "better-sqlite3": "^12.6.2",
     "nuxt": "^4.4.2",
     "tailwindcss": "^4.1.0",

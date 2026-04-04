@@ -151,6 +151,8 @@ useSeoMeta({
 
       <ContentRenderer :value="project" class="prose prose-invert blog-prose max-w-none" />
 
+      <Comments :path="post.path" />
+
       <nav class="grid gap-4 border-t border-zinc-800 pt-6 sm:grid-cols-2" :aria-label="t('projectsDetail.navigationAria')">
         <NuxtLink
           v-if="prevProject"

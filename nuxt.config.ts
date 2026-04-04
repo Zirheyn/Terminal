@@ -7,6 +7,7 @@ const footerGithubUrl = (globalThis as { process?: { env?: Record<string, string
 const footerLinkedinUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_LINKEDIN_URL || ''
 const footerEmail = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.FOOTER_EMAIL || ''
 const umamiWebsiteId = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.UMAMI_WEBSITE_ID || ''
+const walineServerUrl = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.NUXT_PUBLIC_WALINE_SERVER_URL || ''
 const contentIntegrityCheck = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
@@ -116,7 +117,8 @@ export default defineNuxtConfig({
       footerGithubUrl,
       footerLinkedinUrl,
       footerEmail,
-      umamiWebsiteId
+      umamiWebsiteId,
+      walineServerUrl
     }
   },
   nitro: {

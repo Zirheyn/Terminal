@@ -826,3 +826,9 @@ button:hover,
   image-rendering: pixelated;
   filter: contrast(1.15) brightness(0.9);
 }
+
+html.dark {
+  --waline-white: #1a1a1a;
+  --waline-light-grey: #666;
+  --waline-color: #eee;
+}
