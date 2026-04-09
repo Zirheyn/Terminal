@@ -131,6 +131,8 @@ useSeoMeta({
 
       <ContentRenderer :value="post" class="prose prose-invert blog-prose max-w-none" />
 
+      <Comments />
+
       <nav class="grid gap-4 border-t border-zinc-800 pt-6 sm:grid-cols-2" :aria-label="ui.navAria">
         <NuxtLink
           v-if="prevPost"

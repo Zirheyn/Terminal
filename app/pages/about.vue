@@ -150,6 +150,7 @@ useSeoMeta({
                 >
                 <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-400">{{ t('about.toolLabel') }}</p>
               </div>
+              
 
               <h4 class="mb-2 text-lg font-bold uppercase leading-tight">{{ tool.name }}</h4>
               <p class="mb-5 text-sm leading-6 text-zinc-300">{{ t(tool.noteKey) }}</p>
@@ -170,5 +171,7 @@ useSeoMeta({
         </div>
       </div>
     </section>
+
+    <Comments />
   </section>
 </template>
